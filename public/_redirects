@@ -1,2 +1,2 @@
-# www to non-www redirect
-https://www.breadratio.com/* https://breadratio.com/:splat 301
+# www to non-www redirect (handled by Cloudflare Redirect Rules)
+# This file is kept for future path-based redirects
