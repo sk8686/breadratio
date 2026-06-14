@@ -1,0 +1,297 @@
+{
+  "site": {
+    "name": "BreadRatio",
+    "tagline": "Präzise Backmathematik, für immer kostenlos."
+  },
+  "nav": {
+    "home": "Startseite",
+    "hydration": "Hydration",
+    "scaler": "Skalierer",
+    "yeast": "Hefe",
+    "bakers": "Bäcker %",
+    "pizza": "Pizza",
+    "starter": "Sauerteig",
+    "themeToggle": "Dunkelmodus umschalten",
+    "switchToLight": "Zum Hellmodus wechseln",
+    "switchToDark": "Zum Dunkelmodus wechseln",
+    "menu": "Menü umschalten",
+    "backToTop": "Nach oben",
+    "logoHome": "BreadRatio Startseite",
+    "switchLanguage": "Sprache wechseln",
+    "skipToContent": "Zum Inhalt springen"
+  },
+  "footer": {
+    "tagline": "Kostenlose Backmathematik-Tools für Heimbäcker und Sauerteig-Enthusiasten. Keine Werbung, kein Tracking, keine Anmeldung erforderlich.",
+    "tools": "Werkzeuge",
+    "resources": "Ressourcen",
+    "faq": "FAQ",
+    "about": "Über uns",
+    "copyright": "Alle Berechnungen basieren auf Standard-Backformeln."
+  },
+  "home": {
+    "pageTitle": "BreadRatio - Kostenlose Backmathematik-Tools für Heimbäcker",
+    "pageDesc": "Kostenlose Online-Backrechner für Sauerteig-Hydration, Rezeptskalierung, Hefeumrechnung, Bäckerprozent und Pizzateig. Keine Anmeldung erforderlich.",
+    "title": "Backmathematik, einfach gemacht.",
+    "titleLine2": "",
+    "subtitle": "Kostenlose, sofortige und präzise Backrechner für Sauerteigbäcker und Pizzabäcker. Keine Anmeldung. Kein Schnickschnack. Nur die Mathematik, die du in der Küche brauchst.",
+    "whyTitle": "Warum BreadRatio?",
+    "whyP1": "Backen ist eine Wissenschaft genauso wie eine Kunst. Jedes große Brot beginnt mit den richtigen Zahlen — Hydratationsverhältnisse, Hefeumrechnungen und skalierte Zutaten. Aber Backmathematik von Hand zu machen ist mühsam und fehleranfällig, besonders wenn man mit mehligen Händen mitten in einer geschäftigen Küche steht.",
+    "whyP2": "BreadRatio bietet dir sofortige, präzise Berechnungen auf jedem Gerät. Hol es auf deinem Handy an der Arbeitsfläche auf. Keine Werbung, keine Konten, kein Tracking. Nur die Werkzeuge, die du brauchst, wenn du sie brauchst.",
+    "faqTitle": "Häufig gestellte Fragen",
+    "tools": {
+      "hydration": {
+        "title": "Hydratationsrechner",
+        "desc": "Berechne den Hydratationsgrad des Teigs sofort. Erfahre, was verschiedene Hydratationsstufen für die Textur und Krume deines Brotes bedeuten.",
+        "open": "Rechner öffnen"
+      },
+      "scaler": {
+        "title": "Rezept-Skalierer",
+        "desc": "Skaliere jedes Brotrezept sofort hoch oder runter. Von einem Laib zu einem Dutzend ohne Kopfrechnen — alle Zutaten werden automatisch neu berechnet.",
+        "open": "Rechner öffnen"
+      },
+      "yeast": {
+        "title": "Hefe-Umrechner",
+        "desc": "Wandle in Sekunden zwischen Frischhefe, aktiver Trockenhefe und Instanthefe um. Zweifle nie wieder an einer Substitution.",
+        "open": "Rechner öffnen"
+      },
+      "bakers": {
+        "title": "Bäckerprozent",
+        "desc": "Berechne Bäckerprozente für jedes Rezept. Verstehe deine Formel wie professionelle Bäcker — mit Mehl als 100%-Referenz.",
+        "open": "Rechner öffnen"
+      },
+      "pizza": {
+        "title": "Pizzateig-Rechner",
+        "desc": "Berechne die genauen Mengen an Mehl, Wasser, Hefe, Salz und Öl für jede Anzahl von Pizzen. Voreinstellungen für neapolitanisch, New York, sizilianisch und mehr.",
+        "open": "Rechner öffnen"
+      },
+      "starter": {
+        "title": "Sauerteig-Rechner",
+        "desc": "Berechne Fütterungsverhältnisse, Mehl- und Wassermengen, Discard-Menge und Hydration für deinen Sauerteig. Zwei Modi: Fütterung und Zielmenge.",
+        "open": "Rechner öffnen"
+      }
+    }
+  },
+  "faq": {
+    "hydrationQ": "Was ist Teighydration?",
+    "hydrationA": "Teighydration ist das Verhältnis von Wasser zu Mehl in einem Brotteig, ausgedrückt als Prozentsatz. Berechnet als (Wassergewicht / Mehlgewicht) x 100. Zum Beispiel ergeben 500g Mehl und 350g Wasser eine Hydration von 70%. Die Hydration ist einer der wichtigsten Faktoren, die die Textur, die Krumenstruktur und die Kruste deines Brotes bestimmen.",
+    "yeastQ": "Wie rechne ich zwischen verschiedenen Hefearten um?",
+    "yeastA": "Die Standard-Umrechnungsverhältnisse sind: Frischhefe zu aktiver Trockenhefe = 3:1 und Frischhefe zu Instanthefe = 3:1. Aktive Trockenhefe und Instanthefe sind im modernen Backen im Allgemeinen 1:1 austauschbar. Unser Hefe-Umrechner verarbeitet alle drei Arten automatisch.",
+    "bakersQ": "Was ist Bäckerprozent?",
+    "bakersA": "Bäckerprozent ist ein Notationssystem, bei dem jede Zutat als Prozentsatz des Gesamtgewichts des Mehls ausgedrückt wird. Mehl ist immer 100%. Wenn ein Rezept 70% Wasser, 2% Salz und 1% Hefe angibt, bedeutet das, dass du für jede 1000g Mehl 700g Wasser, 20g Salz und 10g Hefe verwendest. Dieses System macht Rezepte unendlich skalierbar und leicht vergleichbar.",
+    "pizzaQ": "Wie viel Teig brauche ich pro Pizza?",
+    "pizzaA": "Die Teigmenge pro Pizza hängt von Größe und Stil ab. Für eine 12-Zoll-Pizza (30cm): neapolitanisch braucht etwa 250g, New-York-Stil etwa 320g und sizilianisch etwa 450g. Unser Pizzateig-Rechner berechnet dies automatisch basierend auf deiner Pizzagröße und deinem Stil.",
+    "freeQ": "Ist BreadRatio kostenlos?",
+    "freeA": "Ja, komplett kostenlos. Keine Anmeldung, keine Werbung, kein Tracking. Wir haben BreadRatio gebaut, weil wir Backen lieben und ein einfaches Werkzeug wollten, das einfach funktioniert. Alle Berechnungen finden direkt in deinem Browser statt — wir sehen deine Daten nie."
+  },
+  "calc": {
+    "grams": "g",
+    "copyResult": "Ergebnis kopieren",
+    "copied": "Kopiert!",
+    "copyAll": "Alles kopieren",
+    "relatedTools": "Verwandte Werkzeuge",
+    "presets": "Voreinstellungen:",
+    "quick": "Schnell:",
+    "style": "Stil:",
+    "ingredient": "Zutat",
+    "amount": "Menge",
+    "addIngredient": "+ Zutat hinzufügen",
+    "resetDefault": "Auf Standard zurücksetzen",
+    "enterToSee": "Gib deine Werte ein, um Ergebnisse zu sehen.",
+    "enterValidYields": "Gib gültige Mengen ein, um das skalierte Rezept zu sehen.",
+    "remove": "Entfernen",
+    "loaves": "Laib/Laibe"
+  },
+  "hydration": {
+    "title": "Teighydration-Rechner",
+    "pageTitle": "Hydratationsrechner - Kostenloses Brotteig-Hydratationstool",
+    "pageDesc": "Berechne den Hydratationsgrad des Brotteigs sofort. Erfahre, wie Hydration die Textur, Krume und Kruste deines Brotes beeinflusst. Kostenloses Online-Tool für Sauerteig- und Kunstbäcker.",
+    "subtitle": "Berechne den Hydratationsgrad deines Teigs und verstehe, was er für dein Brot bedeutet. Gib Mehl- und Wassergewichte unten ein — Ergebnisse erscheinen sofort.",
+    "flour": "Mehl",
+    "water": "Wasser",
+    "result": "Hydration",
+    "enterFlour": "Mehlgewicht eingeben",
+    "presets": {
+      "bagels": "Bagels (55%)",
+      "sandwich": "Sandwichbrot (60%)",
+      "sourdough": "Sauerteig (70%)",
+      "baguette": "Baguette (75%)",
+      "ciabatta": "Ciabatta (80%)",
+      "focaccia": "Focaccia (85%)"
+    },
+    "infoCards": {
+      "veryStiff": { "range": "50-57%", "title": "Sehr fest", "desc": "Bagels, Brezeln" },
+      "stiff": { "range": "58-65%", "title": "Fest", "desc": "Sandwichbrot" },
+      "standard": { "range": "66-70%", "title": "Standard", "desc": "Landbrote" },
+      "high": { "range": "71-78%", "title": "Hoch", "desc": "Handwerkliches Sauerteigbrot" },
+      "veryHigh": { "range": "79-85%", "title": "Sehr hoch", "desc": "Ciabatta, Focaccia" },
+      "extreme": { "range": "85%+", "title": "Extrem", "desc": "Pan de cristal" }
+    },
+    "desc": {
+      "veryStiff": "Feste, dichte Krume. Ideal für Bagels und Brezeln.",
+      "stiff": "Fester Teig, feine Krume. Großartig für Sandwichbrot und Brötchen.",
+      "standard": "Ausgewogener Teig mit mäßig offener Krume.",
+      "high": "Offene Krume, knusprige Kruste. Klassisches handwerkliches Sauerteigbrot.",
+      "veryHigh": "Große Löcher, dünne knusprige Kruste. Ciabatta und Focaccia.",
+      "extreme": "Sehr offene Krume. Pan-de-cristal-Territorium."
+    },
+    "faqTitle": "Über Teighydration",
+    "faq1Q": "Was ist Teighydration?",
+    "faq1A": "Teighydration ist das Verhältnis des Wassergewichts zum Mehlgewicht, ausgedrückt als Prozentsatz. Formel: Hydration % = (Wasser g / Mehl g) x 100. Es ist der wichtigste Faktor, der die Textur, Krumenstruktur und Kruste deines Brotes bestimmt.",
+    "faq2Q": "Welche Hydration ist am besten für Sauerteig?",
+    "faq2A": "Die meisten Sauerteigrezepte verwenden 65-75% Hydration. Anfänger sollten mit 65-68% für leichtere Handhabung beginnen. Erfahrene Bäcker gehen oft auf 75-80% für eine offenere Krume.",
+    "faq3Q": "Wie beeinflusst Hydration die Brottextur?",
+    "faq3A": "Höhere Hydration = offenere Krume, dünnere Kruste, dehnbarerer Teig. Niedrigere Hydration = festere Krume, dickere Kruste, leichter zu formen."
+  },
+  "scaler": {
+    "title": "Rezept-Skalierer",
+    "pageTitle": "Rezept-Skalierer - Brotrezepte sofort skalieren | BreadRatio",
+    "pageDesc": "Skaliere jedes Brotrezept sofort hoch oder runter. Von einem Laib zu einem Dutzend mit automatischer Zutatenneuberechnung. Kostenloses Online-Brotrezept-Skalierungstool.",
+    "subtitle": "Skaliere jedes Brotrezept hoch oder runter. Gib deine Zutaten, die ursprüngliche und die Zielmenge ein und erhalte sofort neu berechnete Mengen.",
+    "originalYield": "Ursprüngliche Menge",
+    "targetYield": "Zielmenge",
+    "ingredients": "Zutaten",
+    "scaledRecipe": "Skaliertes Rezept",
+    "enterValidYields": "Gib gültige Mengen ein, um skalierte Ergebnisse zu sehen.",
+    "presets": {
+      "half": "Halb (x0.5)",
+      "double": "Doppelt (x2)",
+      "triple": "Dreifach (x3)",
+      "quad": "Vierfach (x4)"
+    }
+  },
+  "yeast": {
+    "title": "Hefe-Umrechner",
+    "pageTitle": "Hefe-Umrechner - Frischhefe, aktive Trockenhefe & Instanthefe umrechnen | BreadRatio",
+    "pageDesc": "Wandle sofort zwischen Frischhefe, aktiver Trockenhefe und Instanthefe um. Genaue Umrechnungsverhältnisse zum Backen. Kostenloses Online-Hefe-Umrechnungstool.",
+    "subtitle": "Wandle zwischen Frischhefe, aktiver Trockenhefe und Instanthefe um. Standard-Umrechnungsverhältnisse eingebaut — kein Raten nötig.",
+    "amount": "Menge",
+    "convertFrom": "Umrechnen von",
+    "freshYeast": "Frischhefe",
+    "activeDry": "Aktive Trockenhefe",
+    "instantYeast": "Instanthefe",
+    "equivalent": "Entsprechende Mengen",
+    "infoCards": {
+      "ratio": { "range": "3 : 1 : 1", "title": "Frisch : Aktiv Trocken : Instant", "desc": "Standardverhältnis" },
+      "fresh": { "range": "Frisch", "title": "~70% Wasser", "desc": "Kühlen, kurze Haltbarkeit" },
+      "activeDry": { "range": "Aktiv Trocken", "title": "~8% Wasser", "desc": "Muss in warmem Wasser aufgelöst werden" },
+      "instant": { "range": "Instant", "title": "~5% Wasser", "desc": "Direkt mit Mehl mischen" }
+    },
+    "faqTitle": "Hefe-Umrechnungsleitfaden",
+    "faq1Q": "Wie rechne ich Frischhefe in Trockenhefe um?",
+    "faq1A": "Teile die Frischhefemenge durch 3. Zum Beispiel: 30g Frischhefe = 10g aktive Trockenhefe oder Instanthefe. Das Standardverhältnis ist 3:1 (frisch:trocken).",
+    "faq2Q": "Ist aktive Trockenhefe dasselbe wie Instanthefe?",
+    "faq2A": "Sie sind in den meisten Rezepten 1:1 austauschbar. Der Hauptunterschied liegt in der Anwendung: Aktive Trockenhefe sollte zuerst in warmem Wasser aufgelöst werden (gehydriert), während Instanthefe direkt mit den trockenen Zutaten vermischt werden kann.",
+    "faq3Q": "Kann ich Instanthefe in Sauerteig durch Frischhefe ersetzen?",
+    "faq3A": "Ja. Wenn ein Rezept Frischhefe verlangt und du nur Instanthefe hast, verwende 1/3 der Menge. Beachte jedoch, dass Sauerteig traditionell auf die natürliche Lockerung durch den Starter angewiesen ist."
+  },
+  "bakers": {
+    "title": "Bäckerprozent-Rechner",
+    "pageTitle": "Bäckerprozent-Rechner - Professionelles Backformel-Tool | BreadRatio",
+    "pageDesc": "Berechne Bäckerprozente für jedes Brotrezept. Drücke jede Zutat relativ zum Mehlgewicht aus. Kostenloser Online-Bäckerprozent-Rechner für professionelle und Heimbäcker.",
+    "subtitle": "Berechne Bäckerprozente — der professionelle Standard für Brotformeln. Mehl ist immer 100%. Jede andere Zutat wird relativ zum Gesamtgewicht des Mehls ausgedrückt.",
+    "bakersPercentages": "Bäckerprozente",
+    "flourRef": "(Mehl = 100%)",
+    "totalDoughWeight": "Gesamtes Teiggewicht:",
+    "addFlour": "Füge eine Zutat mit \"Mehl\" im Namen als 100%-Referenz hinzu.",
+    "faqTitle": "Bäckerprozent verstehen",
+    "faq1Q": "Was ist Bäckerprozent?",
+    "faq1A": "Bäckerprozent ist ein Notationssystem, bei dem jede Zutat in einem Rezept als Prozentsatz des Gesamtgewichts des Mehls ausgedrückt wird. Mehl ist immer 100%. Dieses System macht Rezepte unendlich skalierbar und leicht zwischen verschiedenen Formeln vergleichbar.",
+    "faq2Q": "Warum Bäckerprozent statt normaler Prozente verwenden?",
+    "faq2A": "Normale Prozente summieren sich auf 100% des Gesamten. Bäckerprozente nicht — sie beziehen sich nur auf das Mehl. Das ist nützlicher, weil es dir das Verhältnis jeder Zutat zum Mehl auf einen Blick zeigt.",
+    "faq3Q": "Was ist ein typisches Bäckerprozent für ein Sauerteigbrot?",
+    "faq3A": "Eine typische Sauerteigformel: Mehl 100%, Wasser 70-78%, Salz 2%, Starter/Levain 20%. Das ergibt einen Teig mit 70-78% Hydration."
+  },
+  "pizza": {
+    "title": "Pizzateig-Rechner",
+    "pageTitle": "Pizzateig-Rechner - Berechne den perfekten Pizzateig | BreadRatio",
+    "pageDesc": "Berechne die genauen Mengen an Mehl, Wasser, Hefe, Salz und Öl für jede Anzahl von Pizzen. Voreinstellungen für neapolitanisch, New York, sizilianisch und mehr. Kostenloser Online-Pizzateig-Rechner.",
+    "subtitle": "Berechne die genaue Menge an Mehl, Wasser, Hefe, Salz und Öl für deinen Pizzateig. Wähle einen Stil, lege Pizzagröße und -anzahl fest und erhalte präzise Messwerte.",
+    "pizzaCount": "Anzahl der Pizzen",
+    "pizzaSize": "Pizzagröße",
+    "cmDiameter": "cm Durchmesser",
+    "hydration": "Hydration",
+    "doughPerBall": "Teig pro Kugel",
+    "ingredientsNeeded": "Benötigte Zutaten",
+    "flour": "Mehl",
+    "water": "Wasser",
+    "yeast": "Hefe",
+    "salt": "Salz",
+    "oil": "Öl",
+    "totalDough": "Gesamter Teig",
+    "styles": {
+      "neapolitan": "Neapolitanisch",
+      "newYork": "New York",
+      "sicilian": "Sizilianisch",
+      "thinCrust": "Dünn & Knusprig",
+      "detroit": "Detroit"
+    },
+    "styleDesc": {
+      "neapolitan": "Dünne Mitte, luftiger Rand. Am besten mit Hochtemperaturöfen (450°C+).",
+      "newYork": "Dünn, faltbar, leicht knusprig. Der klassische Street-Slice.",
+      "sicilian": "Dick, fluffig, focaccia-ähnlich. In einer Form mit Olivenöl gebacken.",
+      "thinCrust": "Knackerdünn und sehr knusprig. So dünn wie möglich ausrollen.",
+      "detroit": "Dick, luftig, käsefransiger Rand. In einer rechteckigen Form gebacken."
+    },
+    "faqTitle": "Pizzateig-Leitfaden",
+    "faq1Q": "Wie viel Teig pro Pizza?",
+    "faq1A": "Für eine 12-Zoll-Pizza (30cm): neapolitanisch ~250g, New-York-Stil ~280g, sizilianisch ~380g, dünn & knusprig ~220g, Detroit ~400g.",
+    "faq2Q": "Welche Hydration ist am besten für Pizzateig?",
+    "faq2A": "Neapolitanisch: 60-65%. New York: 62-65%. Sizilianisch/Detroit: 70-75%. Dünn & Knusprig: 55-60%.",
+    "faq3Q": "Wie viel Hefe für Pizzateig?",
+    "faq3A": "Dieser Rechner verwendet 0,5% Instanthefe (Bäckerprozent). Für einen Pizzateig mit 300g Mehl sind das etwa 1,5g Instanthefe."
+  },
+  "starter": {
+    "title": "Sauerteig-Rechner",
+    "pageTitle": "Sauerteig-Rechner - Fütterungsverhältnisse & Hydration | BreadRatio",
+    "pageDesc": "Berechne Sauerteig-Fütterungsverhältnisse, Mehl- und Wassermengen, Discard-Menge und Hydration. Kostenloses Online-Tool für Sauerteigbäcker.",
+    "subtitle": "Berechne Fütterungsverhältnisse, Mehl- und Wassermengen, Discard-Menge und Hydration für deinen Sauerteig. Wähle unten einen Modus, um loszulegen.",
+    "tabFeeding": "Fütterungsrechner",
+    "tabTarget": "Zielmengenrechner",
+    "currentStarter": "Aktuelle Startermenge",
+    "feedingRatio": "Fütterungsverhältnis",
+    "feedingResults": "Fütterungsergebnisse",
+    "flourToAdd": "Mehl hinzufügen",
+    "waterToAdd": "Wasser hinzufügen",
+    "totalAfterFeeding": "Gesamt nach Fütterung",
+    "starterHydration": "Starter-Hydration",
+    "desiredFinalAmount": "Gewünschte Endmenge",
+    "existingStarter": "Vorhandener Starter",
+    "targetResults": "Zielergebnisse",
+    "flourNeeded": "Benötigtes Mehl",
+    "waterNeeded": "Benötigtes Wasser",
+    "useExistingStarter": "Vorhandenen Starter verwenden",
+    "discardAmount": "Discard-Menge",
+    "noneNeeded": "Nicht benötigt",
+    "newStarterTotal": "Neue Starter-Gesamtmenge",
+    "achievableTotal": "Erreichbare Gesamtmenge",
+    "requiredStarter": "Benötigter Starter",
+    "targetShortfall": "Fehlbetrag",
+    "targetNotReachable": "Zielmenge in einer Fütterung nicht erreichbar",
+    "insufficientStarterNote": "Dein vorhandener Starter reicht nicht aus, um die Zielmenge in einer einzigen Fütterung zu erreichen. Steigere schrittweise über mehrere Fütterungen.",
+    "enterStarter": "Gib deine Startermenge ein, um Ergebnisse zu sehen.",
+    "enterDesired": "Gib die gewünschte Menge ein, um Ergebnisse zu sehen.",
+    "infoCards": {
+      "1:1:1": { "title": "1:1:1", "desc": "Tägliche Fütterung - Erhält die Starterstärke" },
+      "1:2:2": { "title": "1:2:2", "desc": "Schneller Aufbau - Gut zum Wiederbeleben schwacher Starter" },
+      "1:3:3": { "title": "1:3:3", "desc": "Aggressiver Aufbau - Erzeugt viel Discard" },
+      "1:4:4": { "title": "1:4:4", "desc": "Maximales Wachstum - Zum Etablieren neuer Starter" }
+    },
+    "faqTitle": "Über Sauerteig-Fütterung",
+    "faq1Q": "Was ist ein Sauerteig-Fütterungsverhältnis?",
+    "faq1A": "Ein Fütterungsverhältnis sagt dir, wie viel Starter, Mehl und Wasser du bei jeder Fütterung mischen sollst. Geschrieben als S:M:W (Starter:Mehl:Wasser), bedeutet ein 1:1:1-Verhältnis gleiche Teile von jedem.",
+    "faq2Q": "Wie viel Starter sollte ich behalten vs. verwerfen?",
+    "faq2A": "Das hängt von deinem Backplan ab. Bei täglichen Fütterungen mit einem 1:1:1-Verhältnis ist es üblich, 20-50g zu behalten, um Verschwendung zu vermeiden.",
+    "faq3Q": "Welche Hydration sollte mein Starter haben?",
+    "faq3A": "Die meisten Bäcker halten ihren Starter bei 100% Hydration, was gleiche Teile Mehl und Wasser nach Gewicht bedeutet.",
+    "faq4Q": "Wie oft sollte ich meinen Starter füttern?",
+    "faq4A": "Bei Raumtemperatur (20-24°C) sollte der Starter alle 12-24 Stunden mit einem 1:1:1-Verhältnis gefüttert werden. In wärmerem Klima kann eine Fütterung alle 8-12 Stunden nötig sein."
+  },
+  "notFound": {
+    "title": "404 — Seite nicht gefunden",
+    "subtitle": "Die Seite, die du suchst, existiert nicht. Aber wir haben jede Menge Backmathematik, die dir helfen kann.",
+    "goHome": "Zur Startseite",
+    "tryHydration": "Hydratationsrechner",
+    "pageTitle": "Seite nicht gefunden - BreadRatio",
+    "pageDesc": "Die Seite, die du suchst, existiert nicht. Probier einen unserer kostenlosen Backrechner aus."
+  }
+}

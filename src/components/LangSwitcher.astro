@@ -1,0 +1,41 @@
+---
+import { languages, langCodes, getLocalizedPath, getPathWithoutLang } from '../i18n/index';
+
+const { lang, currentPath = '/' } = Astro.props;
+const cleanPath = getPathWithoutLang(currentPath);
+---
+
+<div class="lang-switcher">
+  <button class="lang-switcher-btn" id="langSwitcherBtn" aria-label="Change language" aria-expanded="false">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="2" y1="12" x2="22" y2="12"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+    {languages[lang]}
+  </button>
+  <div class="lang-switcher-dropdown" id="langDropdown">
+    {langCodes.map(code => (
+      <a href={getLocalizedPath(cleanPath, code)} class={code === lang ? 'active' : ''}>
+        {languages[code]}
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  (function(){
+    var btn = document.getElementById('langSwitcherBtn');
+    var dropdown = document.getElementById('langDropdown');
+    if (!btn || !dropdown) return;
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var isOpen = dropdown.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+    });
+    document.addEventListener('click', function() {
+      dropdown.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  })();
+</script>

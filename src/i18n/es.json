@@ -1,0 +1,297 @@
+{
+  "site": {
+    "name": "BreadRatio",
+    "tagline": "Matemáticas de repostería precisas, gratis para siempre."
+  },
+  "nav": {
+    "home": "Inicio",
+    "hydration": "Hidratación",
+    "scaler": "Escalador",
+    "yeast": "Levadura",
+    "bakers": "Panadero %",
+    "pizza": "Pizza",
+    "starter": "Masa madre",
+    "themeToggle": "Cambiar modo oscuro",
+    "switchToLight": "Cambiar a modo claro",
+    "switchToDark": "Cambiar a modo oscuro",
+    "menu": "Abrir menú",
+    "backToTop": "Volver arriba",
+    "logoHome": "Inicio de BreadRatio",
+    "switchLanguage": "Cambiar idioma",
+    "skipToContent": "Saltar al contenido"
+  },
+  "footer": {
+    "tagline": "Herramientas gratuitas de matemáticas de repostería para panaderos caseros y entusiastas de la masa madre. Sin anuncios, sin rastreo, sin registro.",
+    "tools": "Herramientas",
+    "resources": "Recursos",
+    "faq": "Preguntas frecuentes",
+    "about": "Acerca de",
+    "copyright": "Todos los cálculos se basan en fórmulas estándar de panadería."
+  },
+  "home": {
+    "pageTitle": "BreadRatio - Herramientas gratuitas de matemáticas de repostería",
+    "pageDesc": "Calculadoras gratuitas de repostería para hidratación de masa madre, escalado de recetas, conversión de levadura, porcentaje de panadero y masa de pizza. Sin registro.",
+    "title": "Matemáticas de repostería, simplificadas.",
+    "titleLine2": "",
+    "subtitle": "Calculadoras de repostería gratuitas, instantáneas y precisas para panaderos de masa madre y pizzeros. Sin registro. Sin distracciones. Solo las matemáticas que necesitas en la cocina.",
+    "whyTitle": "¿Por qué BreadRatio?",
+    "whyP1": "La repostería es tanto una ciencia como un arte. Cada gran pan comienza con los números correctos: proporciones de hidratación, conversiones de levadura e ingredientes escalados. Pero hacer cálculos de repostería a mano es tedioso y propenso a errores, especialmente cuando estás en medio de una cocina ocupada con las manos enharinadas.",
+    "whyP2": "BreadRatio te ofrece cálculos instantáneos y precisos en cualquier dispositivo. Ábrelo en tu teléfono mientras estás en la encimera. Sin anuncios, sin cuentas, sin rastreo. Solo las herramientas que necesitas, cuando las necesitas.",
+    "faqTitle": "Preguntas frecuentes",
+    "tools": {
+      "hydration": {
+        "title": "Calculadora de hidratación",
+        "desc": "Calcula el porcentaje de hidratación de la masa al instante. Aprende qué significan los diferentes niveles de hidratación para la textura y el migaje de tu pan.",
+        "open": "Abrir calculadora"
+      },
+      "scaler": {
+        "title": "Escalador de recetas",
+        "desc": "Escala cualquier receta de pan hacia arriba o hacia abajo al instante. Ajusta de un pan a una docena sin cálculos mentales: todos los ingredientes se recalculan automáticamente.",
+        "open": "Abrir calculadora"
+      },
+      "yeast": {
+        "title": "Convertidor de levadura",
+        "desc": "Convierte entre levadura fresca, levadura seca activa y levadura instantánea en segundos. No vuelvas a dudar de una sustitución.",
+        "open": "Abrir calculadora"
+      },
+      "bakers": {
+        "title": "Porcentaje de panadero",
+        "desc": "Calcula los porcentajes de panadero para cualquier receta. Entiende tu fórmula como lo hacen los panaderos profesionales: con la harina como referencia del 100%.",
+        "open": "Abrir calculadora"
+      },
+      "pizza": {
+        "title": "Calculadora de masa de pizza",
+        "desc": "Calcula las cantidades exactas de harina, agua, levadura, sal y aceite para cualquier número de pizzas. Presets para napolitana, neoyorquina, siciliana y más.",
+        "open": "Abrir calculadora"
+      },
+      "starter": {
+        "title": "Calculadora de masa madre",
+        "desc": "Calcula proporciones de alimentación, cantidades de harina y agua, cantidad de descarte e hidratación de tu masa madre. Dos modos: alimentación y cantidad objetivo.",
+        "open": "Abrir calculadora"
+      }
+    }
+  },
+  "faq": {
+    "hydrationQ": "¿Qué es la hidratación de la masa?",
+    "hydrationA": "La hidratación de la masa es la proporción de agua respecto a la harina en una masa de pan, expresada como porcentaje. Se calcula como (peso del agua / peso de la harina) x 100. Por ejemplo, 500g de harina y 350g de agua dan una hidratación del 70%. La hidratación es uno de los factores más importantes que determinan la textura, la estructura del migaje y la corteza de tu pan.",
+    "yeastQ": "¿Cómo convierto entre diferentes tipos de levadura?",
+    "yeastA": "Las proporciones de conversión estándar son: levadura fresca a levadura seca activa = 3:1, y levadura fresca a levadura instantánea = 3:1. La levadura seca activa y la instantánea generalmente son intercambiables 1:1 en la repostería moderna. Nuestro convertidor de levadura maneja los tres tipos automáticamente.",
+    "bakersQ": "¿Qué es el porcentaje de panadero?",
+    "bakersA": "El porcentaje de panadero es un sistema de notación donde cada ingrediente se expresa como porcentaje del peso total de la harina. La harina siempre es 100%. Si una receta indica 70% agua, 2% sal y 1% levadura, significa que por cada 1000g de harina usas 700g de agua, 20g de sal y 10g de levadura. Este sistema hace las recetas infinitamente escalables y fáciles de comparar.",
+    "pizzaQ": "¿Cuánta masa necesito por pizza?",
+    "pizzaA": "La cantidad de masa por pizza depende del tamaño y el estilo. Para una pizza de 12 pulgadas (30cm): napolitana necesita unos 250g, estilo neoyorquino unos 320g, y siciliana unos 450g. Nuestra calculadora de masa de pizza lo calcula automáticamente según el tamaño y estilo.",
+    "freeQ": "¿BreadRatio es gratuito?",
+    "freeA": "Sí, completamente gratuito. Sin registro, sin anuncios, sin rastreo. Creamos BreadRatio porque nos encanta la repostería y queríamos una herramienta simple que funcionara. Todos los cálculos se realizan en tu navegador — nunca vemos tus datos."
+  },
+  "calc": {
+    "grams": "g",
+    "copyResult": "Copiar resultado",
+    "copied": "¡Copiado!",
+    "copyAll": "Copiar todo",
+    "relatedTools": "Herramientas relacionadas",
+    "presets": "Presets:",
+    "quick": "Rápido:",
+    "style": "Estilo:",
+    "ingredient": "Ingrediente",
+    "amount": "Cantidad",
+    "addIngredient": "+ Añadir ingrediente",
+    "resetDefault": "Restablecer valores",
+    "enterToSee": "Introduce tus valores para ver los resultados.",
+    "enterValidYields": "Introduce rendimientos válidos para ver la receta ajustada.",
+    "remove": "Eliminar",
+    "loaves": "pan(es)"
+  },
+  "hydration": {
+    "title": "Calculadora de hidratación de masa",
+    "pageTitle": "Calculadora de hidratación - Herramienta gratuita de hidratación de masa de pan",
+    "pageDesc": "Calcula el porcentaje de hidratación de la masa de pan al instante. Aprende cómo la hidratación afecta la textura, el migaje y la corteza de tu pan. Herramienta online gratuita para panaderos de masa madre y artesanales.",
+    "subtitle": "Calcula el porcentaje de hidratación de tu masa y entiende qué significa para tu pan. Introduce los pesos de harina y agua abajo: los resultados aparecen al instante.",
+    "flour": "Harina",
+    "water": "Agua",
+    "result": "Hidratación",
+    "enterFlour": "Introduce el peso de la harina",
+    "presets": {
+      "bagels": "Bagels (55%)",
+      "sandwich": "Sándwich (60%)",
+      "sourdough": "Masa madre (70%)",
+      "baguette": "Baguette (75%)",
+      "ciabatta": "Ciabatta (80%)",
+      "focaccia": "Focaccia (85%)"
+    },
+    "infoCards": {
+      "veryStiff": { "range": "50-57%", "title": "Muy rígida", "desc": "Bagels, pretzels" },
+      "stiff": { "range": "58-65%", "title": "Rígida", "desc": "Pan de sándwich" },
+      "standard": { "range": "66-70%", "title": "Estándar", "desc": "Panes rústicos" },
+      "high": { "range": "71-78%", "title": "Alta", "desc": "Masa madre artesanal" },
+      "veryHigh": { "range": "79-85%", "title": "Muy alta", "desc": "Ciabatta, focaccia" },
+      "extreme": { "range": "85%+", "title": "Extrema", "desc": "Pan de cristal" }
+    },
+    "desc": {
+      "veryStiff": "Migaje apretado y denso. Ideal para bagels y pretzels.",
+      "stiff": "Masa firme, migaje fino. Ideal para pan de sándwich y bollos.",
+      "standard": "Masa equilibrada con migaje moderadamente abierto.",
+      "high": "Migaje abierto, corteza crujiente. Masa madre artesanal clásica.",
+      "veryHigh": "Agujeros grandes, corteza fina y crujiente. Ciabatta y focaccia.",
+      "extreme": "Migaje muy abierto. Nivel de pan de cristal."
+    },
+    "faqTitle": "Sobre la hidratación de la masa",
+    "faq1Q": "¿Qué es la hidratación de la masa?",
+    "faq1A": "La hidratación de la masa es la proporción del peso del agua respecto al peso de la harina, expresada como porcentaje. Fórmula: Hidratación % = (Agua g / Harina g) x 100. Es el factor más importante que determina la textura, la estructura del migaje y la corteza de tu pan.",
+    "faq2Q": "¿Qué hidratación es mejor para la masa madre?",
+    "faq2A": "La mayoría de las recetas de masa madre usan 65-75% de hidratación. Los principiantes deberían empezar con 65-68% para facilitar el manejo. Los panaderos experimentados suelen usar 75-80% para un migaje más abierto.",
+    "faq3Q": "¿Cómo afecta la hidratación a la textura del pan?",
+    "faq3A": "Mayor hidratación = migaje más abierto, corteza más fina, masa más extensible. Menor hidratación = migaje más apretado, corteza más gruesa, más fácil de dar forma."
+  },
+  "scaler": {
+    "title": "Escalador de recetas",
+    "pageTitle": "Escalador de recetas - Escala recetas de pan al instante | BreadRatio",
+    "pageDesc": "Escala cualquier receta de pan hacia arriba o hacia abajo al instante. Ajusta de un pan a una docena con recalculación automática de ingredientes. Herramienta online gratuita de escalado de recetas de pan.",
+    "subtitle": "Escala cualquier receta de pan hacia arriba o hacia abajo. Introduce tus ingredientes, el rendimiento original y el objetivo, y obtén las cantidades recalculadas al instante.",
+    "originalYield": "Rendimiento original",
+    "targetYield": "Rendimiento objetivo",
+    "ingredients": "Ingredientes",
+    "scaledRecipe": "Receta escalada",
+    "enterValidYields": "Introduce rendimientos válidos para ver los resultados escalados.",
+    "presets": {
+      "half": "Mitad (x0.5)",
+      "double": "Doble (x2)",
+      "triple": "Triple (x3)",
+      "quad": "Cuádruple (x4)"
+    }
+  },
+  "yeast": {
+    "title": "Convertidor de levadura",
+    "pageTitle": "Convertidor de levadura - Convierte levadura fresca, seca activa e instantánea | BreadRatio",
+    "pageDesc": "Convierte entre levadura fresca, levadura seca activa y levadura instantánea al instante. Proporciones de conversión precisas para repostería. Herramienta online gratuita de conversión de levadura.",
+    "subtitle": "Convierte entre levadura fresca, levadura seca activa y levadura instantánea. Proporciones de conversión estándar integradas: sin necesidad de adivinar.",
+    "amount": "Cantidad",
+    "convertFrom": "Convertir desde",
+    "freshYeast": "Levadura fresca",
+    "activeDry": "Levadura seca activa",
+    "instantYeast": "Levadura instantánea",
+    "equivalent": "Cantidades equivalentes",
+    "infoCards": {
+      "ratio": { "range": "3 : 1 : 1", "title": "Fresca : Seca activa : Instantánea", "desc": "Proporción estándar" },
+      "fresh": { "range": "Fresca", "title": "~70% agua", "desc": "Refrigerar, vida útil corta" },
+      "activeDry": { "range": "Seca activa", "title": "~8% agua", "desc": "Necesita hidratación en agua tibia" },
+      "instant": { "range": "Instantánea", "title": "~5% agua", "desc": "Mezclar directamente con la harina" }
+    },
+    "faqTitle": "Guía de conversión de levadura",
+    "faq1Q": "¿Cómo convierto levadura fresca a levadura seca?",
+    "faq1A": "Divide la cantidad de levadura fresca entre 3. Por ejemplo, 30g de levadura fresca = 10g de levadura seca activa o instantánea. La proporción estándar es 3:1 (fresca:seca).",
+    "faq2Q": "¿Es la levadura seca activa lo mismo que la levadura instantánea?",
+    "faq2A": "Son intercambiables 1:1 en la mayoría de las recetas. La principal diferencia es cómo se usan: la levadura seca activa debe disolverse primero en agua tibia (hidratarse), mientras que la levadura instantánea puede mezclarse directamente con los ingredientes secos.",
+    "faq3Q": "¿Puedo sustituir levadura instantánea por levadura fresca en masa madre?",
+    "faq3A": "Sí. Si una receta pide levadura fresca y solo tienes instantánea, usa 1/3 de la cantidad. Sin embargo, la masa madre tradicionalmente depende de la fermentación natural del cultivo iniciador."
+  },
+  "bakers": {
+    "title": "Calculadora de porcentaje de panadero",
+    "pageTitle": "Calculadora de porcentaje de panadero - Herramienta profesional de fórmulas de repostería | BreadRatio",
+    "pageDesc": "Calcula los porcentajes de panadero para cualquier receta de pan. Expresa cada ingrediente en relación al peso de la harina. Calculadora online gratuita de porcentaje de panadero para panaderos profesionales y caseros.",
+    "subtitle": "Calcula los porcentajes de panadero: el estándar profesional para fórmulas de pan. La harina siempre es 100%. Cada otro ingrediente se expresa en relación al peso total de la harina.",
+    "bakersPercentages": "Porcentajes de panadero",
+    "flourRef": "(Harina = 100%)",
+    "totalDoughWeight": "Peso total de la masa:",
+    "addFlour": "Añade un ingrediente con \"harina\" en su nombre como referencia del 100%.",
+    "faqTitle": "Entendiendo el porcentaje de panadero",
+    "faq1Q": "¿Qué es el porcentaje de panadero?",
+    "faq1A": "El porcentaje de panadero es un sistema de notación donde cada ingrediente de una receta se expresa como porcentaje del peso total de la harina. La harina siempre es 100%. Este sistema hace las recetas infinitamente escalables y fáciles de comparar entre diferentes fórmulas.",
+    "faq2Q": "¿Por qué usar porcentaje de panadero en vez de porcentajes regulares?",
+    "faq2A": "Los porcentajes regulares suman 100% del total. Los porcentajes de panadero no: solo referencian la harina. Esto es más útil porque te dice la proporción de cada ingrediente respecto a la harina de un vistazo.",
+    "faq3Q": "¿Cuál es un porcentaje de panadero típico para un pan de masa madre?",
+    "faq3A": "Una fórmula típica de masa madre: Harina 100%, Agua 70-78%, Sal 2%, Cultivo iniciador/Levain 20%. Esto te da una masa con 70-78% de hidratación."
+  },
+  "pizza": {
+    "title": "Calculadora de masa de pizza",
+    "pageTitle": "Calculadora de masa de pizza - Calcula la masa de pizza perfecta | BreadRatio",
+    "pageDesc": "Calcula las cantidades exactas de harina, agua, levadura, sal y aceite para cualquier número de pizzas. Presets para napolitana, neoyorquina, siciliana y más. Calculadora online gratuita de masa de pizza.",
+    "subtitle": "Calcula la cantidad exacta de harina, agua, levadura, sal y aceite para tu masa de pizza. Elige un estilo, define el tamaño y la cantidad de pizzas, y obtén medidas precisas.",
+    "pizzaCount": "Número de pizzas",
+    "pizzaSize": "Tamaño de pizza",
+    "cmDiameter": "cm de diámetro",
+    "hydration": "Hidratación",
+    "doughPerBall": "Masa por bola",
+    "ingredientsNeeded": "Ingredientes necesarios",
+    "flour": "Harina",
+    "water": "Agua",
+    "yeast": "Levadura",
+    "salt": "Sal",
+    "oil": "Aceite",
+    "totalDough": "Masa total",
+    "styles": {
+      "neapolitan": "Napolitana",
+      "newYork": "Neoyorquina",
+      "sicilian": "Siciliana",
+      "thinCrust": "Fina y crujiente",
+      "detroit": "Detroit"
+    },
+    "styleDesc": {
+      "neapolitan": "Centro fino, cornicione esponjoso. Mejor con hornos de alta temperatura (450°C+).",
+      "newYork": "Fina, plegable, ligeramente crujiente. La clásica porción callejera.",
+      "sicilian": "Gruesa, esponjosa, tipo focaccia. Horneada en bandeja con aceite de oliva.",
+      "thinCrust": "Fina como galleta y muy crujiente. Estírala lo más fina posible.",
+      "detroit": "Gruesa, aireada, corte con queso crujiente en los bordes. Horneada en molde rectangular."
+    },
+    "faqTitle": "Guía de masa de pizza",
+    "faq1Q": "¿Cuánta masa por pizza?",
+    "faq1A": "Para una pizza de 12 pulgadas (30cm): napolitana ~250g, estilo neoyorquino ~280g, siciliana ~380g, fina y crujiente ~220g, Detroit ~400g.",
+    "faq2Q": "¿Qué hidratación es mejor para la masa de pizza?",
+    "faq2A": "Napolitana: 60-65%. Neoyorquina: 62-65%. Siciliana/Detroit: 70-75%. Fina y crujiente: 55-60%.",
+    "faq3Q": "¿Cuánta levadura para la masa de pizza?",
+    "faq3A": "Esta calculadora usa 0.5% de levadura instantánea (porcentaje de panadero). Para una masa de pizza con 300g de harina, eso es aproximadamente 1.5g de levadura instantánea."
+  },
+  "starter": {
+    "title": "Calculadora de masa madre",
+    "pageTitle": "Calculadora de masa madre - Proporciones de alimentación e hidratación | BreadRatio",
+    "pageDesc": "Calcula las proporciones de alimentación de la masa madre, cantidades de harina y agua, cantidad de descarte e hidratación. Herramienta online gratuita para panaderos de masa madre.",
+    "subtitle": "Calcula proporciones de alimentación, cantidades de harina y agua, cantidad de descarte e hidratación de tu masa madre. Elige un modo abajo para empezar.",
+    "tabFeeding": "Calculadora de alimentación",
+    "tabTarget": "Calculadora de cantidad objetivo",
+    "currentStarter": "Cantidad actual de masa madre",
+    "feedingRatio": "Proporción de alimentación",
+    "feedingResults": "Resultados de alimentación",
+    "flourToAdd": "Harina a añadir",
+    "waterToAdd": "Agua a añadir",
+    "totalAfterFeeding": "Total después de alimentar",
+    "starterHydration": "Hidratación de la masa madre",
+    "desiredFinalAmount": "Cantidad final deseada",
+    "existingStarter": "Masa madre existente",
+    "targetResults": "Resultados del objetivo",
+    "flourNeeded": "Harina necesaria",
+    "waterNeeded": "Agua necesaria",
+    "useExistingStarter": "Usar masa madre existente",
+    "discardAmount": "Cantidad de descarte",
+    "noneNeeded": "No necesario",
+    "newStarterTotal": "Nuevo total de masa madre",
+    "achievableTotal": "Total alcanzable",
+    "requiredStarter": "Iniciador necesario",
+    "targetShortfall": "Déficit",
+    "targetNotReachable": "Cantidad objetivo no alcanzable en una alimentación",
+    "insufficientStarterNote": "Tu iniciador actual no es suficiente para alcanzar la cantidad objetivo en una sola alimentación. Aumenta gradualmente en varias alimentaciones.",
+    "enterStarter": "Introduce la cantidad de tu masa madre para ver los resultados.",
+    "enterDesired": "Introduce la cantidad deseada para ver los resultados.",
+    "infoCards": {
+      "1:1:1": { "title": "1:1:1", "desc": "Alimentación diaria - Mantiene la fuerza del cultivo" },
+      "1:2:2": { "title": "1:2:2", "desc": "Cultivo rápido - Bueno para revivir cultivos débiles" },
+      "1:3:3": { "title": "1:3:3", "desc": "Cultivo agresivo - Produce mucho descarte" },
+      "1:4:4": { "title": "1:4:4", "desc": "Crecimiento máximo - Para establecer nuevos cultivos" }
+    },
+    "faqTitle": "Sobre la alimentación de la masa madre",
+    "faq1Q": "¿Qué es una proporción de alimentación de masa madre?",
+    "faq1A": "Una proporción de alimentación te indica cuánta masa madre, harina y agua combinar en cada alimentación. Se escribe como M:H:A (masa madre:harina:agua), una proporción 1:1:1 significa partes iguales de cada una.",
+    "faq2Q": "¿Cuánta masa madre debo conservar vs descartar?",
+    "faq2A": "Depende de tu programa de repostería. Para alimentaciones diarias con proporción 1:1:1, conservar 20-50g es común para evitar desperdicio.",
+    "faq3Q": "¿Qué hidratación debe tener mi masa madre?",
+    "faq3A": "La mayoría de los panaderos mantienen su masa madre al 100% de hidratación, lo que significa partes iguales de harina y agua en peso.",
+    "faq4Q": "¿Con qué frecuencia debo alimentar mi masa madre?",
+    "faq4A": "Si se mantiene a temperatura ambiente (20-24°C), alimenta tu masa madre cada 12-24 horas usando una proporción 1:1:1. En climas más cálidos puede necesitar alimentación cada 8-12 horas."
+  },
+  "notFound": {
+    "title": "404 — Página no encontrada",
+    "subtitle": "La página que buscas no existe. Pero tenemos muchas herramientas de matemáticas de repostería para ayudarte.",
+    "goHome": "Ir al inicio",
+    "tryHydration": "Calculadora de hidratación",
+    "pageTitle": "Página no encontrada - BreadRatio",
+    "pageDesc": "La página que buscas no existe. Prueba una de nuestras calculadoras de repostería gratuitas."
+  }
+}

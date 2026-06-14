@@ -1,0 +1,270 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+import { t, getLocalizedPath } from '../i18n/index';
+
+const lang = 'en';
+import { buildFAQPageSchema, buildSoftwareAppSchema, buildBreadcrumbSchema } from '../utils/seo.js';
+const faqSchema = buildFAQPageSchema([
+  { question: t(lang, 'pizza.faq1Q'), answer: t(lang, 'pizza.faq1A') },
+  { question: t(lang, 'pizza.faq2Q'), answer: t(lang, 'pizza.faq2A') },
+  { question: t(lang, 'pizza.faq3Q'), answer: t(lang, 'pizza.faq3A') },
+  { question: t(lang, 'pizza.faq4Q'), answer: t(lang, 'pizza.faq4A') },
+  { question: t(lang, 'pizza.faq5Q'), answer: t(lang, 'pizza.faq5A') },
+  { question: t(lang, 'pizza.faq6Q'), answer: t(lang, 'pizza.faq6A') },
+  { question: t(lang, 'pizza.faq7Q'), answer: t(lang, 'pizza.faq7A') },
+]);
+const appSchema = buildSoftwareAppSchema({
+  name: t(lang, 'pizza.pageTitle'),
+  url: 'https://breadratio.com/pizza-dough-calculator/',
+  description: t(lang, 'pizza.pageDesc'),
+});
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: t(lang, 'nav.home'), url: 'https://breadratio.com' + getLocalizedPath('/', lang) },
+  { name: t(lang, 'pizza.title'), url: 'https://breadratio.com' + getLocalizedPath('/pizza-dough-calculator/', lang) },
+]);
+const pizzaStyleDescriptions = {
+  neapolitan: t(lang, 'pizza.styleDesc.neapolitan'),
+  newYork: t(lang, 'pizza.styleDesc.newYork'),
+  sicilian: t(lang, 'pizza.styleDesc.sicilian'),
+  thinCrust: t(lang, 'pizza.styleDesc.thinCrust'),
+  detroit: t(lang, 'pizza.styleDesc.detroit'),
+};
+const pizzaTexts = {
+  flour: t(lang, 'pizza.flour'),
+  water: t(lang, 'pizza.water'),
+  yeast: t(lang, 'pizza.yeast'),
+  salt: t(lang, 'pizza.salt'),
+  oil: t(lang, 'pizza.oil'),
+  totalDough: t(lang, 'pizza.totalDough'),
+  copyAll: t(lang, 'calc.copyAll'),
+  copied: t(lang, 'calc.copied'),
+};
+---
+
+<BaseLayout title={t(lang, 'pizza.pageTitle')} description={t(lang, 'pizza.pageDesc')} currentPath="/pizza-dough-calculator/" lang={lang}>
+  <section class="container page-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href={getLocalizedPath('/', lang)}>{t(lang, 'nav.home')}</a>
+      <span class="sep">/</span>
+      <span>{t(lang, 'home.tools.pizza.title')}</span>
+    </nav>
+
+    <div class="page-header">
+      <h1>{t(lang, 'pizza.title')}</h1>
+      <p>{t(lang, 'pizza.subtitle')}</p>
+    </div>
+
+    <div class="calc-card">
+      <div class="presets" id="pizzaStyle" data-style-descriptions={JSON.stringify(pizzaStyleDescriptions)}>
+        <span style="font-size:0.8rem;color:var(--color-muted);margin-right:4px;display:flex;align-items:center;">{t(lang, 'calc.style')}</span>
+        <button class="preset-btn" data-style="neapolitan" data-hydration="62" data-thickness="0.085">{t(lang, 'pizza.styles.neapolitan')}</button>
+        <button class="preset-btn active" data-style="new-york" data-hydration="63" data-thickness="0.095">{t(lang, 'pizza.styles.newYork')}</button>
+        <button class="preset-btn" data-style="sicilian" data-hydration="70" data-thickness="0.12">{t(lang, 'pizza.styles.sicilian')}</button>
+        <button class="preset-btn" data-style="thin-crust" data-hydration="58" data-thickness="0.08">{t(lang, 'pizza.styles.thinCrust')}</button>
+        <button class="preset-btn" data-style="detroit" data-hydration="72" data-thickness="0.13">{t(lang, 'pizza.styles.detroit')}</button>
+      </div>
+
+      <div class="input-row">
+        <div class="input-group">
+          <label for="pizzaCount">{t(lang, 'pizza.pizzaCount')}</label>
+          <div class="input-field">
+            <input type="number" id="pizzaCount" placeholder="2" inputmode="numeric" min="1" step="1" value="2" />
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="pizzaSize">{t(lang, 'pizza.pizzaSize')} <span class="unit">({t(lang, 'pizza.cmDiameter')})</span></label>
+          <div class="input-field">
+            <input type="number" id="pizzaSize" placeholder="30" inputmode="decimal" min="10" step="any" value="30" />
+            <span class="input-suffix">cm</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-group">
+          <label for="pizzaHydration">{t(lang, 'pizza.hydration')} <span class="unit">(%)</span></label>
+          <div class="input-field">
+            <input type="number" id="pizzaHydration" placeholder="63" inputmode="decimal" min="50" max="85" step="any" value="63" />
+            <span class="input-suffix">%</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="doughPerBall">{t(lang, 'pizza.doughPerBall')} <span class="unit">({t(lang, 'calc.grams')})</span></label>
+          <div class="input-field">
+            <input type="number" id="doughPerBall" placeholder="280" inputmode="decimal" min="50" step="any" value="280" readonly aria-readonly="true" style="color:var(--color-muted);" />
+            <span class="input-suffix">{t(lang, 'calc.grams')}</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size:0.8rem;color:var(--color-muted);margin-bottom:var(--space-lg);" id="styleDescription">
+        {t(lang, 'pizza.styleDesc.newYork')}
+      </div>
+
+      <div class="result-display" style="text-align:center;" aria-live="polite" aria-atomic="true">
+        <div style="font-size:0.85rem;color:var(--color-muted);margin-bottom:var(--space-sm);">{t(lang, 'pizza.ingredientsNeeded')}</div>
+        <div id="pizzaResults">
+          <div class="result-row"><span class="label">{t(lang, 'pizza.flour')}</span><span class="value" id="pFlour">—</span></div>
+          <div class="result-row"><span class="label">{t(lang, 'pizza.water')}</span><span class="value" id="pWater">—</span></div>
+          <div class="result-row"><span class="label">{t(lang, 'pizza.yeast')}</span><span class="value" id="pYeast">—</span></div>
+          <div class="result-row"><span class="label">{t(lang, 'pizza.salt')}</span><span class="value" id="pSalt">—</span></div>
+          <div class="result-row"><span class="label">{t(lang, 'pizza.oil')}</span><span class="value" id="pOil">—</span></div>
+        </div>
+        <div style="margin-top:var(--space-md);padding-top:var(--space-md);border-top:1px solid var(--color-border);">
+          <div class="result-row"><span class="label">{t(lang, 'pizza.totalDough')}</span><span class="value" id="pTotal">—</span></div>
+        </div>
+        <button class="btn-copy" id="copyPizza" style="margin-top:12px;" data-texts={JSON.stringify(pizzaTexts)}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          {t(lang, 'calc.copyAll')}
+        </button>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <script type="application/ld+json" set:html={appSchema}></script>
+      <script type="application/ld+json" set:html={faqSchema}></script>
+      <script type="application/ld+json" set:html={breadcrumbSchema}></script>
+      <h2>{t(lang, 'pizza.faqTitle')}</h2>
+      <details class="faq-item" open>
+        <summary>{t(lang, 'pizza.faq1Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'pizza.faq1A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'pizza.faq2Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'pizza.faq2A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'pizza.faq3Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'pizza.faq3A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'pizza.faq4Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'pizza.faq4A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'pizza.faq5Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'pizza.faq5A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'pizza.faq6Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'pizza.faq6A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'pizza.faq7Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'pizza.faq7A')}</p></div>
+      </details>
+    </div>
+
+    <div class="related-tools">
+      <h3>{t(lang, 'calc.relatedTools')}</h3>
+      <ul>
+        <li><a href={getLocalizedPath('/hydration-calculator/', lang)}>{t(lang, 'home.tools.hydration.title')}</a></li>
+        <li><a href={getLocalizedPath('/recipe-scaler/', lang)}>{t(lang, 'home.tools.scaler.title')}</a></li>
+        <li><a href={getLocalizedPath('/bakers-percentage/', lang)}>{t(lang, 'home.tools.bakers.title')}</a></li>
+        <li><a href={getLocalizedPath('/yeast-converter/', lang)}>{t(lang, 'home.tools.yeast.title')}</a></li>
+        <li><a href={getLocalizedPath('/sourdough-starter-calculator/', lang)}>{t(lang, 'home.tools.starter.title')}</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  import { buildCopyText, getCopyButtonMarkup } from '../utils/calculator-ui.js';
+  import { getPizzaStyleState, calculatePizzaRecipe } from '../utils/calculator-helpers.js';
+
+  function init() {
+    const countInput = document.getElementById('pizzaCount') as HTMLInputElement;
+    const sizeInput = document.getElementById('pizzaSize') as HTMLInputElement;
+    const hydrationInput = document.getElementById('pizzaHydration') as HTMLInputElement;
+    const doughPerBall = document.getElementById('doughPerBall') as HTMLInputElement;
+    const styleDesc = document.getElementById('styleDescription');
+    const styleContainer = document.getElementById('pizzaStyle');
+    const styleBtns = styleContainer?.querySelectorAll('.preset-btn') || [];
+    const copyBtn = document.getElementById('copyPizza');
+    const styleDescriptions = JSON.parse(styleContainer?.getAttribute('data-style-descriptions') || '{}');
+    const texts = JSON.parse(copyBtn?.getAttribute('data-texts') || '{}');
+
+    const pFlour = document.getElementById('pFlour');
+    const pWater = document.getElementById('pWater');
+    const pYeast = document.getElementById('pYeast');
+    const pSalt = document.getElementById('pSalt');
+    const pOil = document.getElementById('pOil');
+    const pTotal = document.getElementById('pTotal');
+
+    let currentStyle = 'new-york';
+
+    function sanitizeNum(val: string): number {
+      const n = parseFloat(val);
+      if (isNaN(n) || !isFinite(n)) return 0;
+      return n;
+    }
+
+    function update() {
+      const count = Math.round(sanitizeNum(countInput?.value || '0')) || 0;
+      const size = sanitizeNum(sizeInput?.value || '0');
+      const hydration = sanitizeNum(hydrationInput?.value || '0');
+
+      const recipe = calculatePizzaRecipe({
+        style: currentStyle,
+        pizzaCount: count,
+        pizzaSizeCm: size,
+        hydrationPercent: hydration,
+      });
+
+      if (!recipe) {
+        if (doughPerBall) doughPerBall.value = '';
+        [pFlour, pWater, pYeast, pSalt, pOil, pTotal].forEach(el => { if (el) el.textContent = '—'; });
+        return;
+      }
+
+      if (doughPerBall) doughPerBall.value = String(recipe.doughPerBall);
+      if (pFlour) pFlour.textContent = recipe.flour + 'g';
+      if (pWater) pWater.textContent = recipe.water + 'g';
+      if (pYeast) pYeast.textContent = recipe.yeast.toFixed(1) + 'g';
+      if (pSalt) pSalt.textContent = recipe.salt + 'g';
+      if (pOil) pOil.textContent = recipe.oil + 'g';
+      if (pTotal) pTotal.textContent = recipe.totalDough + 'g';
+    }
+
+    countInput?.addEventListener('input', update);
+    sizeInput?.addEventListener('input', update);
+    hydrationInput?.addEventListener('input', update);
+
+    styleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        styleBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const style = (btn as HTMLElement).dataset.style || 'new-york';
+        const nextStyle = getPizzaStyleState(style, styleDescriptions);
+        currentStyle = style;
+        if (hydrationInput) hydrationInput.value = String(nextStyle.hydration);
+        if (styleDesc) styleDesc.textContent = nextStyle.description;
+        update();
+      });
+    });
+
+    copyBtn?.addEventListener('click', () => {
+      const text = buildCopyText([
+        [texts.flour || '', pFlour?.textContent?.trim() || ''],
+        [texts.water || '', pWater?.textContent?.trim() || ''],
+        [texts.yeast || '', pYeast?.textContent?.trim() || ''],
+        [texts.salt || '', pSalt?.textContent?.trim() || ''],
+        [texts.oil || '', pOil?.textContent?.trim() || ''],
+      ], texts.totalDough && pTotal?.textContent ? `${texts.totalDough}: ${pTotal.textContent.trim()}` : '');
+      if (!navigator.clipboard) { console.warn('Clipboard not available'); return; }
+      navigator.clipboard.writeText(text).then(() => {
+        copyBtn.classList.add('copied');
+        copyBtn.innerHTML = getCopyButtonMarkup(texts.copied || '', 'success');
+        setTimeout(() => {
+          copyBtn.classList.remove('copied');
+          copyBtn.innerHTML = getCopyButtonMarkup(texts.copyAll || '');
+        }, 2000);
+      }).catch((e) => { console.warn('Copy failed:', e); });
+    });
+
+    update();
+  }
+
+  init();
+</script>

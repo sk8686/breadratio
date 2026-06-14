@@ -1,0 +1,2 @@
+# www to non-www redirect
+https://www.breadratio.com/* https://breadratio.com/:splat 301

@@ -1,0 +1,301 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/global.css';
+import { t, getLocalizedPath, langCodes, defaultLang } from '../../i18n/index';
+
+export function getStaticPaths() {
+  return langCodes
+    .filter(code => code !== defaultLang)
+    .map(code => ({ params: { lang: code } }));
+}
+
+const { lang } = Astro.params;
+import { buildFAQPageSchema, buildSoftwareAppSchema, buildBreadcrumbSchema } from '../../utils/seo.js';
+const faqSchema = buildFAQPageSchema([
+  { question: t(lang, 'bakers.faq1Q'), answer: t(lang, 'bakers.faq1A') },
+  { question: t(lang, 'bakers.faq2Q'), answer: t(lang, 'bakers.faq2A') },
+  { question: t(lang, 'bakers.faq3Q'), answer: t(lang, 'bakers.faq3A') },
+  { question: t(lang, 'bakers.faq4Q'), answer: t(lang, 'bakers.faq4A') },
+  { question: t(lang, 'bakers.faq5Q'), answer: t(lang, 'bakers.faq5A') },
+  { question: t(lang, 'bakers.faq6Q'), answer: t(lang, 'bakers.faq6A') },
+]);
+const appSchema = buildSoftwareAppSchema({
+  name: t(lang, 'bakers.pageTitle'),
+  url: `https://breadratio.com/${lang}/bakers-percentage/`,
+  description: t(lang, 'bakers.pageDesc'),
+});
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: t(lang, 'nav.home'), url: 'https://breadratio.com' + getLocalizedPath('/', lang) },
+  { name: t(lang, 'bakers.title'), url: 'https://breadratio.com' + getLocalizedPath('/bakers-percentage/', lang) },
+]);
+const bakersDefaults = [
+  { name: t(lang, 'hydration.flour'), amount: '1000' },
+  { name: t(lang, 'hydration.water'), amount: '700' },
+  { name: t(lang, 'pizza.salt'), amount: '20' },
+  { name: t(lang, 'yeast.instantYeast'), amount: '10' },
+];
+const bakersFlourTerms = ['flour', t(lang, 'hydration.flour'), t(lang, 'pizza.flour')];
+const bakersTexts = {
+  ingredient: t(lang, 'calc.ingredient'),
+  amount: t(lang, 'calc.amount'),
+  grams: t(lang, 'calc.grams'),
+  remove: t(lang, 'calc.remove'),
+  copyAll: t(lang, 'calc.copyAll'),
+  copied: t(lang, 'calc.copied'),
+  addFlour: t(lang, 'bakers.addFlour'),
+};
+---
+
+<BaseLayout title={t(lang, 'bakers.pageTitle')} description={t(lang, 'bakers.pageDesc')} currentPath={`/${lang}/bakers-percentage/`} lang={lang}>
+  <section class="container page-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href={getLocalizedPath('/', lang)}>{t(lang, 'nav.home')}</a>
+      <span class="sep">/</span>
+      <span>{t(lang, 'home.tools.bakers.title')}</span>
+    </nav>
+
+    <div class="page-header">
+      <h1>{t(lang, 'bakers.title')}</h1>
+      <p>{t(lang, 'bakers.subtitle')}</p>
+    </div>
+
+    <div class="calc-card">
+      <h3 style="margin-bottom:var(--space-md);">{t(lang, 'scaler.ingredients')}</h3>
+      <div id="bpIngredientsList" data-flour-terms={JSON.stringify(bakersFlourTerms)} data-texts={JSON.stringify(bakersTexts)}>
+        <div class="input-row bp-ingredient-row">
+          <div class="input-group">
+            <label>{t(lang, 'calc.ingredient')}</label>
+            <div class="input-field">
+              <input type="text" class="bp-name" placeholder={bakersDefaults[0].name} value={bakersDefaults[0].name} />
+            </div>
+          </div>
+          <div class="input-group">
+            <label>{t(lang, 'calc.amount')} <span class="unit">({t(lang, 'calc.grams')})</span></label>
+            <div class="input-field">
+              <input type="number" class="bp-amount" placeholder="1000" inputmode="decimal" min="0" step="any" value="1000" />
+              <span class="input-suffix">{t(lang, 'calc.grams')}</span>
+            </div>
+          </div>
+        </div>
+        <div class="input-row bp-ingredient-row">
+          <div class="input-group">
+            <label>{t(lang, 'calc.ingredient')}</label>
+            <div class="input-field">
+              <input type="text" class="bp-name" placeholder={bakersDefaults[1].name} value={bakersDefaults[1].name} />
+            </div>
+          </div>
+          <div class="input-group">
+            <label>{t(lang, 'calc.amount')} <span class="unit">({t(lang, 'calc.grams')})</span></label>
+            <div class="input-field">
+              <input type="number" class="bp-amount" placeholder="700" inputmode="decimal" min="0" step="any" value="700" />
+              <span class="input-suffix">{t(lang, 'calc.grams')}</span>
+            </div>
+          </div>
+        </div>
+        <div class="input-row bp-ingredient-row">
+          <div class="input-group">
+            <label>{t(lang, 'calc.ingredient')}</label>
+            <div class="input-field">
+              <input type="text" class="bp-name" placeholder={bakersDefaults[2].name} value={bakersDefaults[2].name} />
+            </div>
+          </div>
+          <div class="input-group">
+            <label>{t(lang, 'calc.amount')} <span class="unit">({t(lang, 'calc.grams')})</span></label>
+            <div class="input-field">
+              <input type="number" class="bp-amount" placeholder="20" inputmode="decimal" min="0" step="any" value="20" />
+              <span class="input-suffix">{t(lang, 'calc.grams')}</span>
+            </div>
+          </div>
+        </div>
+        <div class="input-row bp-ingredient-row">
+          <div class="input-group">
+            <label>{t(lang, 'calc.ingredient')}</label>
+            <div class="input-field">
+              <input type="text" class="bp-name" placeholder={bakersDefaults[3].name} value={bakersDefaults[3].name} />
+            </div>
+          </div>
+          <div class="input-group">
+            <label>{t(lang, 'calc.amount')} <span class="unit">({t(lang, 'calc.grams')})</span></label>
+            <div class="input-field">
+              <input type="number" class="bp-amount" placeholder="10" inputmode="decimal" min="0" step="any" value="10" />
+              <span class="input-suffix">{t(lang, 'calc.grams')}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:var(--space-sm);margin-bottom:var(--space-lg);flex-wrap:wrap;">
+        <button class="btn btn-secondary btn-sm" id="bpAddIngredient">{t(lang, 'calc.addIngredient')}</button>
+        <button class="btn btn-ghost btn-sm" id="bpResetRecipe">{t(lang, 'calc.resetDefault')}</button>
+      </div>
+
+      <div class="result-display" aria-live="polite" aria-atomic="true">
+        <h3 style="margin-bottom:var(--space-md);">{t(lang, 'bakers.bakersPercentages')} <span style="font-weight:400;font-size:0.85rem;color:var(--color-muted);">{t(lang, 'bakers.flourRef')}</span></h3>
+        <div id="bpResultsList"></div>
+        <div style="margin-top:var(--space-md);font-size:0.85rem;color:var(--color-muted);">
+          <strong>{t(lang, 'bakers.totalDoughWeight')}</strong> <span id="bpTotalWeight">0g</span>
+        </div>
+        <button class="btn-copy" id="bpCopyResults" style="margin-top:12px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          {t(lang, 'calc.copyAll')}
+        </button>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <script type="application/ld+json" set:html={appSchema}></script>
+      <script type="application/ld+json" set:html={faqSchema}></script>
+      <script type="application/ld+json" set:html={breadcrumbSchema}></script>
+      <h2>{t(lang, 'bakers.faqTitle')}</h2>
+      <details class="faq-item" open>
+        <summary>{t(lang, 'bakers.faq1Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'bakers.faq1A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'bakers.faq2Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'bakers.faq2A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'bakers.faq3Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'bakers.faq3A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'bakers.faq4Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'bakers.faq4A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'bakers.faq5Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'bakers.faq5A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'bakers.faq6Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'bakers.faq6A')}</p></div>
+      </details>
+    </div>
+
+    <div class="related-tools">
+      <h3>{t(lang, 'calc.relatedTools')}</h3>
+      <ul>
+        <li><a href={getLocalizedPath('/hydration-calculator/', lang)}>{t(lang, 'home.tools.hydration.title')}</a></li>
+        <li><a href={getLocalizedPath('/recipe-scaler/', lang)}>{t(lang, 'home.tools.scaler.title')}</a></li>
+        <li><a href={getLocalizedPath('/yeast-converter/', lang)}>{t(lang, 'home.tools.yeast.title')}</a></li>
+        <li><a href={getLocalizedPath('/pizza-dough-calculator/', lang)}>{t(lang, 'home.tools.pizza.title')}</a></li>
+        <li><a href={getLocalizedPath('/sourdough-starter-calculator/', lang)}>{t(lang, 'home.tools.starter.title')}</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  import { isFlourIngredient } from '../../utils/calculator-helpers.js';
+  import { buildCopyText, getCopyButtonMarkup, escapeHtml } from '../../utils/calculator-ui.js';
+
+  function init() {
+    const ingredientsList = document.getElementById('bpIngredientsList');
+    const resultsList = document.getElementById('bpResultsList');
+    const totalWeightEl = document.getElementById('bpTotalWeight');
+    const copyBtn = document.getElementById('bpCopyResults');
+    const flourTerms = JSON.parse(ingredientsList?.getAttribute('data-flour-terms') || '[]');
+    const texts = JSON.parse(ingredientsList?.getAttribute('data-texts') || '{}');
+    const defaultValues = Array.from(ingredientsList?.querySelectorAll('.bp-ingredient-row') || []).map(row => ({
+      name: (row.querySelector('.bp-name') as HTMLInputElement)?.value || '',
+      amount: (row.querySelector('.bp-amount') as HTMLInputElement)?.value || '0',
+    }));
+
+    function sanitizeNum(val: string): number {
+      const n = parseFloat(val);
+      if (isNaN(n) || !isFinite(n)) return 0;
+      return n;
+    }
+
+    function getIngredients(): { name: string; amount: number }[] {
+      const rows = ingredientsList?.querySelectorAll('.bp-ingredient-row') || [];
+      const ings: { name: string; amount: number }[] = [];
+      rows.forEach(row => {
+        const name = (row.querySelector('.bp-name') as HTMLInputElement)?.value?.trim() || '';
+        const amount = sanitizeNum((row.querySelector('.bp-amount') as HTMLInputElement)?.value || '0');
+        if (name) ings.push({ name, amount });
+      });
+      return ings;
+    }
+
+    function update() {
+      const ingredients = getIngredients();
+      const totalWeight = ingredients.reduce((sum, i) => sum + i.amount, 0);
+      if (totalWeightEl) totalWeightEl.textContent = totalWeight.toFixed(0) + 'g';
+
+      const totalFlour = ingredients
+        .filter(i => isFlourIngredient(i.name, flourTerms))
+        .reduce((sum, i) => sum + i.amount, 0);
+
+      if (totalFlour <= 0) {
+        if (resultsList) resultsList.innerHTML = `<p style="color:var(--color-muted);">${escapeHtml(texts.addFlour || '')}</p>`;
+        return;
+      }
+
+      let html = '';
+      ingredients.forEach(ing => {
+        const pct = (ing.amount / totalFlour) * 100;
+        const isFlour = isFlourIngredient(ing.name, flourTerms);
+        html += `<div class="result-row">
+          <span class="label">${escapeHtml(ing.name)}</span>
+          <span class="value" style="color:${isFlour ? 'var(--color-caramel-dark)' : 'var(--color-brown)'}">${pct.toFixed(1)}%</span>
+        </div>`;
+      });
+      if (resultsList) resultsList.innerHTML = html;
+    }
+
+    ingredientsList?.addEventListener('input', update);
+
+    document.getElementById('bpAddIngredient')?.addEventListener('click', () => {
+      const div = document.createElement('div');
+      div.className = 'input-row bp-ingredient-row';
+      div.innerHTML = `
+        <div class="input-group"><label>${escapeHtml(texts.ingredient || '')}</label><div class="input-field"><input type="text" class="bp-name" placeholder="${escapeHtml(texts.ingredient || '')}" /></div></div>
+        <div class="input-group"><label>${escapeHtml(texts.amount || '')} <span class="unit">(${escapeHtml(texts.grams || 'g')})</span></label><div class="input-field"><input type="number" class="bp-amount" placeholder="0" inputmode="decimal" min="0" step="any" /><span class="input-suffix">${escapeHtml(texts.grams || 'g')}</span></div></div>
+        <button class="btn btn-ghost btn-sm bp-remove-ing" style="align-self:flex-end;margin-bottom:var(--space-lg);" title="${escapeHtml(texts.remove || '')}">&times;</button>
+      `;
+      ingredientsList?.appendChild(div);
+      div.querySelector('.bp-remove-ing')?.addEventListener('click', () => { div.remove(); update(); });
+      div.querySelector('.bp-name')?.addEventListener('input', update);
+      div.querySelector('.bp-amount')?.addEventListener('input', update);
+    });
+
+    document.getElementById('bpResetRecipe')?.addEventListener('click', () => {
+      const rows = ingredientsList?.querySelectorAll('.bp-ingredient-row') || [];
+      rows.forEach((row, i) => {
+        if (i < defaultValues.length) {
+          const nameInput = row.querySelector('.bp-name') as HTMLInputElement;
+          const amtInput = row.querySelector('.bp-amount') as HTMLInputElement;
+          if (nameInput) nameInput.value = defaultValues[i].name;
+          if (amtInput) amtInput.value = defaultValues[i].amount;
+        } else {
+          row.remove();
+        }
+      });
+      update();
+    });
+
+    copyBtn?.addEventListener('click', () => {
+      const rows = resultsList?.querySelectorAll('.result-row') || [];
+      const footerLabel = totalWeightEl?.parentElement?.querySelector('strong')?.textContent?.trim() || '';
+      const text = buildCopyText(Array.from(rows).map(row => ([
+        row.querySelector('.label')?.textContent?.trim() || '',
+        row.querySelector('.value')?.textContent?.trim() || '',
+      ])), footerLabel && totalWeightEl?.textContent ? `${footerLabel}: ${totalWeightEl.textContent}` : '');
+      if (!navigator.clipboard) { console.warn('Clipboard not available'); return; }
+      navigator.clipboard.writeText(text.trim()).then(() => {
+        copyBtn.classList.add('copied');
+        copyBtn.innerHTML = getCopyButtonMarkup(texts.copied || '', 'success');
+        setTimeout(() => {
+          copyBtn.classList.remove('copied');
+          copyBtn.innerHTML = getCopyButtonMarkup(texts.copyAll || '');
+        }, 2000);
+      }).catch((e) => { console.warn('Copy failed:', e); });
+    });
+
+    update();
+  }
+
+  init();
+</script>

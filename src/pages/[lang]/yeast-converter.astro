@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/global.css';
+import { t, getLocalizedPath, langCodes, defaultLang } from '../../i18n/index';
+
+export function getStaticPaths() {
+  return langCodes
+    .filter(code => code !== defaultLang)
+    .map(code => ({ params: { lang: code } }));
+}
+
+const { lang } = Astro.params;
+import { buildFAQPageSchema, buildSoftwareAppSchema, buildBreadcrumbSchema } from '../../utils/seo.js';
+const faqSchema = buildFAQPageSchema([
+  { question: t(lang, 'yeast.faq1Q'), answer: t(lang, 'yeast.faq1A') },
+  { question: t(lang, 'yeast.faq2Q'), answer: t(lang, 'yeast.faq2A') },
+  { question: t(lang, 'yeast.faq3Q'), answer: t(lang, 'yeast.faq3A') },
+  { question: t(lang, 'yeast.faq4Q'), answer: t(lang, 'yeast.faq4A') },
+  { question: t(lang, 'yeast.faq5Q'), answer: t(lang, 'yeast.faq5A') },
+  { question: t(lang, 'yeast.faq6Q'), answer: t(lang, 'yeast.faq6A') },
+]);
+const appSchema = buildSoftwareAppSchema({
+  name: t(lang, 'yeast.pageTitle'),
+  url: `https://breadratio.com/${lang}/yeast-converter/`,
+  description: t(lang, 'yeast.pageDesc'),
+});
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: t(lang, 'nav.home'), url: 'https://breadratio.com' + getLocalizedPath('/', lang) },
+  { name: t(lang, 'yeast.title'), url: 'https://breadratio.com' + getLocalizedPath('/yeast-converter/', lang) },
+]);
+const yeastTexts = {
+  copyAll: t(lang, 'calc.copyAll'),
+  copied: t(lang, 'calc.copied'),
+};
+---
+
+<BaseLayout title={t(lang, 'yeast.pageTitle')} description={t(lang, 'yeast.pageDesc')} currentPath={`/${lang}/yeast-converter/`} lang={lang}>
+  <section class="container page-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href={getLocalizedPath('/', lang)}>{t(lang, 'nav.home')}</a>
+      <span class="sep">/</span>
+      <span>{t(lang, 'home.tools.yeast.title')}</span>
+    </nav>
+
+    <div class="page-header">
+      <h1>{t(lang, 'yeast.title')}</h1>
+      <p>{t(lang, 'yeast.subtitle')}</p>
+    </div>
+
+    <div class="calc-card">
+      <div class="input-group">
+        <label for="yeastAmount">{t(lang, 'yeast.amount')}</label>
+        <div class="input-field">
+          <input type="number" id="yeastAmount" placeholder="10" inputmode="decimal" min="0" step="any" value="10" />
+          <span class="input-suffix">{t(lang, 'calc.grams')}</span>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>{t(lang, 'yeast.convertFrom')}</label>
+        <div class="presets" id="fromType" role="radiogroup" aria-label={t(lang, 'yeast.convertFrom')}>
+          <button class="preset-btn" data-type="fresh" role="radio" aria-checked="false">{t(lang, 'yeast.freshYeast')}</button>
+          <button class="preset-btn active" data-type="active-dry" role="radio" aria-checked="true">{t(lang, 'yeast.activeDry')}</button>
+          <button class="preset-btn" data-type="instant" role="radio" aria-checked="false">{t(lang, 'yeast.instantYeast')}</button>
+        </div>
+      </div>
+
+      <div class="result-display" style="text-align:center;" aria-live="polite" aria-atomic="true">
+        <div style="font-size:0.85rem;color:var(--color-muted);margin-bottom:var(--space-sm);">{t(lang, 'yeast.equivalent')}</div>
+        <div id="yeastResults">
+          <div class="result-row"><span class="label">{t(lang, 'yeast.freshYeast')}</span><span class="value" id="freshResult">30.0g</span></div>
+          <div class="result-row"><span class="label">{t(lang, 'yeast.activeDry')}</span><span class="value" id="activeDryResult">10.0g</span></div>
+          <div class="result-row"><span class="label">{t(lang, 'yeast.instantYeast')}</span><span class="value" id="instantResult">10.0g</span></div>
+        </div>
+        <button class="btn-copy" id="copyYeast" style="margin-top:12px;" data-texts={JSON.stringify(yeastTexts)}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          {t(lang, 'calc.copyAll')}
+        </button>
+      </div>
+    </div>
+
+    <div class="info-cards">
+      <div class="info-card"><div class="range">{t(lang, 'yeast.infoCards.ratio.range')}</div><div class="desc">{t(lang, 'yeast.infoCards.ratio.title')}<br/>{t(lang, 'yeast.infoCards.ratio.desc')}</div></div>
+      <div class="info-card"><div class="range">{t(lang, 'yeast.infoCards.fresh.range')}</div><div class="desc">{t(lang, 'yeast.infoCards.fresh.title')}<br/>{t(lang, 'yeast.infoCards.fresh.desc')}</div></div>
+      <div class="info-card"><div class="range">{t(lang, 'yeast.infoCards.activeDry.range')}</div><div class="desc">{t(lang, 'yeast.infoCards.activeDry.title')}<br/>{t(lang, 'yeast.infoCards.activeDry.desc')}</div></div>
+      <div class="info-card"><div class="range">{t(lang, 'yeast.infoCards.instant.range')}</div><div class="desc">{t(lang, 'yeast.infoCards.instant.title')}<br/>{t(lang, 'yeast.infoCards.instant.desc')}</div></div>
+    </div>
+
+    <div class="faq-section">
+      <script type="application/ld+json" set:html={appSchema}></script>
+      <script type="application/ld+json" set:html={faqSchema}></script>
+      <script type="application/ld+json" set:html={breadcrumbSchema}></script>
+      <h2>{t(lang, 'yeast.faqTitle')}</h2>
+      <details class="faq-item" open>
+        <summary>{t(lang, 'yeast.faq1Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'yeast.faq1A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'yeast.faq2Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'yeast.faq2A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'yeast.faq3Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'yeast.faq3A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'yeast.faq4Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'yeast.faq4A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'yeast.faq5Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'yeast.faq5A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'yeast.faq6Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'yeast.faq6A')}</p></div>
+      </details>
+    </div>
+
+    <div class="related-tools">
+      <h3>{t(lang, 'calc.relatedTools')}</h3>
+      <ul>
+        <li><a href={getLocalizedPath('/hydration-calculator/', lang)}>{t(lang, 'home.tools.hydration.title')}</a></li>
+        <li><a href={getLocalizedPath('/recipe-scaler/', lang)}>{t(lang, 'home.tools.scaler.title')}</a></li>
+        <li><a href={getLocalizedPath('/bakers-percentage/', lang)}>{t(lang, 'home.tools.bakers.title')}</a></li>
+        <li><a href={getLocalizedPath('/pizza-dough-calculator/', lang)}>{t(lang, 'home.tools.pizza.title')}</a></li>
+        <li><a href={getLocalizedPath('/sourdough-starter-calculator/', lang)}>{t(lang, 'home.tools.starter.title')}</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  import { buildCopyText, getCopyButtonMarkup } from '../../utils/calculator-ui.js';
+
+  function init() {
+    const amountInput = document.getElementById('yeastAmount') as HTMLInputElement;
+    const fromBtns = document.querySelectorAll('#fromType .preset-btn');
+    const freshResult = document.getElementById('freshResult');
+    const activeDryResult = document.getElementById('activeDryResult');
+    const instantResult = document.getElementById('instantResult');
+    const copyBtn = document.getElementById('copyYeast');
+    const texts = JSON.parse(copyBtn?.getAttribute('data-texts') || '{}');
+
+    let fromType = 'active-dry';
+
+    const ratios: Record<string, Record<string, number>> = {
+      fresh: { fresh: 1, 'active-dry': 1/3, instant: 1/3 },
+      'active-dry': { fresh: 3, 'active-dry': 1, instant: 1 },
+      instant: { fresh: 3, 'active-dry': 1, instant: 1 },
+    };
+
+    function sanitizeNum(val: string): number {
+      const n = parseFloat(val);
+      if (isNaN(n) || !isFinite(n)) return 0;
+      return n;
+    }
+
+    function update() {
+      const amount = sanitizeNum(amountInput?.value || '0');
+      const r = ratios[fromType];
+      if (amount <= 0) {
+        if (freshResult) freshResult.textContent = '—';
+        if (activeDryResult) activeDryResult.textContent = '—';
+        if (instantResult) instantResult.textContent = '—';
+        return;
+      }
+      if (freshResult) freshResult.textContent = (amount * r.fresh).toFixed(1) + 'g';
+      if (activeDryResult) activeDryResult.textContent = (amount * r['active-dry']).toFixed(1) + 'g';
+      if (instantResult) instantResult.textContent = (amount * r.instant).toFixed(1) + 'g';
+    }
+
+    amountInput?.addEventListener('input', update);
+
+    fromBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        fromBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-checked', 'false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-checked', 'true');
+        fromType = (btn as HTMLElement).dataset.type || 'active-dry';
+        update();
+      });
+    });
+
+    copyBtn?.addEventListener('click', () => {
+      const rows = document.querySelectorAll('#yeastResults .result-row');
+      const text = buildCopyText(Array.from(rows).map(row => ([
+        row.querySelector('.label')?.textContent?.trim() || '',
+        row.querySelector('.value')?.textContent?.trim() || '',
+      ])));
+      if (!navigator.clipboard) { console.warn('Clipboard not available'); return; }
+      navigator.clipboard.writeText(text).then(() => {
+        copyBtn.classList.add('copied');
+        copyBtn.innerHTML = getCopyButtonMarkup(texts.copied || '', 'success');
+        setTimeout(() => {
+          copyBtn.classList.remove('copied');
+          copyBtn.innerHTML = getCopyButtonMarkup(texts.copyAll || '');
+        }, 2000);
+      }).catch((e) => { console.warn('Copy failed:', e); });
+    });
+
+    update();
+  }
+
+  init();
+</script>

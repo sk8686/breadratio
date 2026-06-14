@@ -1,0 +1,297 @@
+{
+  "site": {
+    "name": "BreadRatio",
+    "tagline": "Matemática de panificação precisa, gratuita para sempre."
+  },
+  "nav": {
+    "home": "Início",
+    "hydration": "Hidratação",
+    "scaler": "Escalar",
+    "yeast": "Fermento",
+    "bakers": "Padeiro %",
+    "pizza": "Pizza",
+    "starter": "Levedura natural",
+    "themeToggle": "Alternar modo escuro",
+    "switchToLight": "Mudar para modo claro",
+    "switchToDark": "Mudar para modo escuro",
+    "menu": "Abrir menu",
+    "backToTop": "Voltar ao topo",
+    "logoHome": "Página inicial do BreadRatio",
+    "switchLanguage": "Mudar idioma",
+    "skipToContent": "Pular para o conteúdo"
+  },
+  "footer": {
+    "tagline": "Ferramentas gratuitas de matemática de panificação para padeiros caseiros e entusiastas de levain. Sem anúncios, sem rastreamento, sem cadastro.",
+    "tools": "Ferramentas",
+    "resources": "Recursos",
+    "faq": "Perguntas frequentes",
+    "about": "Sobre",
+    "copyright": "Todos os cálculos são baseados em fórmulas padrão de panificação."
+  },
+  "home": {
+    "pageTitle": "BreadRatio - Ferramentas gratuitas de matemática de panificação",
+    "pageDesc": "Calculadoras gratuitas de panificação para hidratação de levain, escalonamento de receitas, conversão de fermento, porcentagem de padeiro e massa de pizza. Sem cadastro.",
+    "title": "Matemática de panificação, simplificada.",
+    "titleLine2": "",
+    "subtitle": "Calculadoras de panificação gratuitas, instantâneas e precisas para padeiros de levain e pizzaiolos. Sem cadastro. Sem complicação. Apenas a matemática que você precisa na cozinha.",
+    "whyTitle": "Por que BreadRatio?",
+    "whyP1": "A panificação é uma ciência tanto quanto uma arte. Cada grande pão começa com os números certos — proporções de hidratação, conversões de fermento e ingredientes escalados. Mas fazer cálculos de panificação à mão é tedioso e propenso a erros, especialmente quando você está no meio de uma cozinha ocupada com farinha nas mãos.",
+    "whyP2": "O BreadRatio oferece cálculos instantâneos e precisos em qualquer dispositivo. Abra no celular enquanto está na bancada. Sem anúncios, sem contas, sem rastreamento. Apenas as ferramentas que você precisa, quando precisa.",
+    "faqTitle": "Perguntas frequentes",
+    "tools": {
+      "hydration": {
+        "title": "Calculadora de hidratação",
+        "desc": "Calcule a porcentagem de hidratação da massa instantaneamente. Descubra o que diferentes níveis de hidratação significam para a textura e o miolo do seu pão.",
+        "open": "Abrir calculadora"
+      },
+      "scaler": {
+        "title": "Escalar de receitas",
+        "desc": "Escale qualquer receita de pão para cima ou para baixo instantaneamente. Ajuste de um pão para uma dúzia sem cálculo mental — todos os ingredientes recalculados automaticamente.",
+        "open": "Abrir calculadora"
+      },
+      "yeast": {
+        "title": "Conversor de fermento",
+        "desc": "Converta entre fermento fresco, fermento biológico seco e fermento instantâneo em segundos. Nunca mais duvide de uma substituição.",
+        "open": "Abrir calculadora"
+      },
+      "bakers": {
+        "title": "Porcentagem do padeiro",
+        "desc": "Calcule as porcentagens do padeiro para qualquer receita. Entenda sua fórmula como os padeiros profissionais fazem — com a farinha como referência de 100%.",
+        "open": "Abrir calculadora"
+      },
+      "pizza": {
+        "title": "Calculadora de massa de pizza",
+        "desc": "Calcule as quantidades exatas de farinha, água, fermento, sal e óleo para qualquer número de pizzas. Presets para napolitana, nova-iorquina, siciliana e mais.",
+        "open": "Abrir calculadora"
+      },
+      "starter": {
+        "title": "Calculadora de levain",
+        "desc": "Calcule proporções de alimentação, quantidades de farinha e água, quantidade de descarte e hidratação do seu levain. Dois modos: alimentação e quantidade alvo.",
+        "open": "Abrir calculadora"
+      }
+    }
+  },
+  "faq": {
+    "hydrationQ": "O que é hidratação da massa?",
+    "hydrationA": "A hidratação da massa é a proporção de água para farinha em uma massa de pão, expressa em porcentagem. Calcula-se como (peso da água / peso da farinha) x 100. Por exemplo, 500g de farinha e 350g de água resultam em 70% de hidratação. A hidratação é um dos fatores mais importantes que determinam a textura, a estrutura do miolo e a crosta do seu pão.",
+    "yeastQ": "Como converter entre diferentes tipos de fermento?",
+    "yeastA": "As proporções de conversão padrão são: fermento fresco para fermento biológico seco = 3:1, e fermento fresco para fermento instantâneo = 3:1. O fermento biológico seco e o instantâneo geralmente são intercambiáveis 1:1 na panificação moderna. Nosso conversor de fermento cuida dos três tipos automaticamente.",
+    "bakersQ": "O que é porcentagem do padeiro?",
+    "bakersA": "A porcentagem do padeiro é um sistema de notação onde cada ingrediente é expresso como porcentagem do peso total da farinha. A farinha é sempre 100%. Se uma receita indica 70% de água, 2% de sal e 1% de fermento, isso significa que para cada 1000g de farinha, você usa 700g de água, 20g de sal e 10g de fermento. Esse sistema torna as receitas infinitamente escaláveis e fáceis de comparar.",
+    "pizzaQ": "Quanto de massa preciso por pizza?",
+    "pizzaA": "A quantidade de massa por pizza depende do tamanho e do estilo. Para uma pizza de 12 polegadas (30cm): napolitana precisa de cerca de 250g, estilo nova-iorquino cerca de 320g, e siciliana cerca de 450g. Nossa calculadora de massa de pizza calcula isso automaticamente com base no tamanho e estilo da pizza.",
+    "freeQ": "O BreadRatio é gratuito?",
+    "freeA": "Sim, completamente gratuito. Sem cadastro, sem anúncios, sem rastreamento. Criamos o BreadRatio porque amamos panificação e queríamos uma ferramenta simples que funcionasse. Todos os cálculos acontecem no seu navegador — nunca vemos seus dados."
+  },
+  "calc": {
+    "grams": "g",
+    "copyResult": "Copiar resultado",
+    "copied": "Copiado!",
+    "copyAll": "Copiar tudo",
+    "relatedTools": "Ferramentas relacionadas",
+    "presets": "Presets:",
+    "quick": "Rápido:",
+    "style": "Estilo:",
+    "ingredient": "Ingrediente",
+    "amount": "Quantidade",
+    "addIngredient": "+ Adicionar ingrediente",
+    "resetDefault": "Restaurar padrão",
+    "enterToSee": "Insira seus valores para ver os resultados.",
+    "enterValidYields": "Insira quantidades válidas para ver a receita ajustada.",
+    "remove": "Remover",
+    "loaves": "pão(ões)"
+  },
+  "hydration": {
+    "title": "Calculadora de hidratação da massa",
+    "pageTitle": "Calculadora de hidratação - Ferramenta gratuita de hidratação de massa de pão",
+    "pageDesc": "Calcule a porcentagem de hidratação da massa de pão instantaneamente. Descubra como a hidratação afeta a textura, o miolo e a crosta do seu pão. Ferramenta online gratuita para padeiros de levain e artesanais.",
+    "subtitle": "Calcule a porcentagem de hidratação da sua massa e entenda o que isso significa para o seu pão. Insira os pesos de farinha e água abaixo — os resultados aparecem instantaneamente.",
+    "flour": "Farinha",
+    "water": "Água",
+    "result": "Hidratação",
+    "enterFlour": "Insira o peso da farinha",
+    "presets": {
+      "bagels": "Bagels (55%)",
+      "sandwich": "Sanduíche (60%)",
+      "sourdough": "Levain (70%)",
+      "baguette": "Baguete (75%)",
+      "ciabatta": "Ciabata (80%)",
+      "focaccia": "Focaccia (85%)"
+    },
+    "infoCards": {
+      "veryStiff": { "range": "50-57%", "title": "Muito firme", "desc": "Bagels, pretzels" },
+      "stiff": { "range": "58-65%", "title": "Firme", "desc": "Pão de forma" },
+      "standard": { "range": "66-70%", "title": "Padrão", "desc": "Pães rústicos" },
+      "high": { "range": "71-78%", "title": "Alta", "desc": "Levain artesanal" },
+      "veryHigh": { "range": "79-85%", "title": "Muito alta", "desc": "Ciabata, focaccia" },
+      "extreme": { "range": "85%+", "title": "Extrema", "desc": "Pão de cristal" }
+    },
+    "desc": {
+      "veryStiff": "Miolo apertado e denso. Ideal para bagels e pretzels.",
+      "stiff": "Massa firme, miolo fino. Ótimo para pão de forma e pãezinhos.",
+      "standard": "Massa equilibrada com miolo moderadamente aberto.",
+      "high": "Miolo aberto, crosta crocante. Levain artesanal clássico.",
+      "veryHigh": "Buracos grandes, crosta fina e crocante. Ciabata e focaccia.",
+      "extreme": "Miolo muito aberto. Nível de pão de cristal."
+    },
+    "faqTitle": "Sobre a hidratação da massa",
+    "faq1Q": "O que é hidratação da massa?",
+    "faq1A": "A hidratação da massa é a proporção do peso da água em relação ao peso da farinha, expressa em porcentagem. Fórmula: Hidratação % = (Água g / Farinha g) x 100. É o fator mais importante que determina a textura, a estrutura do miolo e a crosta do seu pão.",
+    "faq2Q": "Qual hidratação é melhor para levain?",
+    "faq2A": "A maioria das receitas de levain usa 65-75% de hidratação. Iniciantes devem começar com 65-68% para facilitar o manuseio. Padeiros experientes costumam usar 75-80% para um miolo mais aberto.",
+    "faq3Q": "Como a hidratação afeta a textura do pão?",
+    "faq3A": "Maior hidratação = miolo mais aberto, crosta mais fina, massa mais extensível. Menor hidratação = miolo mais apertado, crosta mais grossa, mais fácil de moldar."
+  },
+  "scaler": {
+    "title": "Escalar de receitas",
+    "pageTitle": "Escalar de receitas - Escale receitas de pão instantaneamente | BreadRatio",
+    "pageDesc": "Escale qualquer receita de pão para cima ou para baixo instantaneamente. Ajuste de um pão para uma dúzia com recálculo automático dos ingredientes. Ferramenta online gratuita de escalonamento de receitas de pão.",
+    "subtitle": "Escale qualquer receita de pão para cima ou para baixo. Insira seus ingredientes, o rendimento original e o alvo, e obtenha as quantidades recalculadas instantaneamente.",
+    "originalYield": "Rendimento original",
+    "targetYield": "Rendimento alvo",
+    "ingredients": "Ingredientes",
+    "scaledRecipe": "Receita escalada",
+    "enterValidYields": "Insira rendimentos válidos para ver os resultados escalados.",
+    "presets": {
+      "half": "Metade (x0.5)",
+      "double": "Dobro (x2)",
+      "triple": "Triplo (x3)",
+      "quad": "Quádruplo (x4)"
+    }
+  },
+  "yeast": {
+    "title": "Conversor de fermento",
+    "pageTitle": "Conversor de fermento - Converta fermento fresco, biológico seco e instantâneo | BreadRatio",
+    "pageDesc": "Converta entre fermento fresco, fermento biológico seco e fermento instantâneo instantaneamente. Proporções de conversão precisas para panificação. Ferramenta online gratuita de conversão de fermento.",
+    "subtitle": "Converta entre fermento fresco, fermento biológico seco e fermento instantâneo. Proporções de conversão padrão integradas — sem necessidade de adivinhação.",
+    "amount": "Quantidade",
+    "convertFrom": "Converter de",
+    "freshYeast": "Fermento fresco",
+    "activeDry": "Fermento biológico seco",
+    "instantYeast": "Fermento instantâneo",
+    "equivalent": "Quantidades equivalentes",
+    "infoCards": {
+      "ratio": { "range": "3 : 1 : 1", "title": "Fresco : Biológico seco : Instantâneo", "desc": "Proporção padrão" },
+      "fresh": { "range": "Fresco", "title": "~70% água", "desc": "Refrigerar, prazo de validade curto" },
+      "activeDry": { "range": "Biológico seco", "title": "~8% água", "desc": "Precisa ser hidratado em água morna" },
+      "instant": { "range": "Instantâneo", "title": "~5% água", "desc": "Misturar diretamente com a farinha" }
+    },
+    "faqTitle": "Guia de conversão de fermento",
+    "faq1Q": "Como converter fermento fresco para fermento seco?",
+    "faq1A": "Divida a quantidade de fermento fresco por 3. Por exemplo, 30g de fermento fresco = 10g de fermento biológico seco ou instantâneo. A proporção padrão é 3:1 (fresco:seco).",
+    "faq2Q": "O fermento biológico seco é o mesmo que o fermento instantâneo?",
+    "faq2A": "São intercambiáveis 1:1 na maioria das receitas. A principal diferença é como usá-los: o fermento biológico seco deve ser dissolvido em água morna primeiro (hidratado), enquanto o fermento instantâneo pode ser misturado diretamente com os ingredientes secos.",
+    "faq3Q": "Posso substituir fermento instantâneo por fermento fresco no levain?",
+    "faq3A": "Sim. Se uma receita pede fermento fresco e você só tem o instantâneo, use 1/3 da quantidade. No entanto, o levain tradicionalmente depende da fermentação natural do cultivo iniciador."
+  },
+  "bakers": {
+    "title": "Calculadora de porcentagem do padeiro",
+    "pageTitle": "Calculadora de porcentagem do padeiro - Ferramenta profissional de fórmulas de panificação | BreadRatio",
+    "pageDesc": "Calcule as porcentagens do padeiro para qualquer receita de pão. Expresse cada ingrediente em relação ao peso da farinha. Calculadora online gratuita de porcentagem do padeiro para padeiros profissionais e caseiros.",
+    "subtitle": "Calcule as porcentagens do padeiro — o padrão profissional para fórmulas de pão. A farinha é sempre 100%. Cada outro ingrediente é expresso em relação ao peso total da farinha.",
+    "bakersPercentages": "Porcentagens do padeiro",
+    "flourRef": "(Farinha = 100%)",
+    "totalDoughWeight": "Peso total da massa:",
+    "addFlour": "Adicione um ingrediente com \"farinha\" no nome como referência de 100%.",
+    "faqTitle": "Entendendo a porcentagem do padeiro",
+    "faq1Q": "O que é porcentagem do padeiro?",
+    "faq1A": "A porcentagem do padeiro é um sistema de notação onde cada ingrediente de uma receita é expresso como porcentagem do peso total da farinha. A farinha é sempre 100%. Esse sistema torna as receitas infinitamente escaláveis e fáceis de comparar entre diferentes fórmulas.",
+    "faq2Q": "Por que usar porcentagem do padeiro em vez de porcentagens regulares?",
+    "faq2A": "Porcentagens regulares somam 100% do total. As porcentagens do padeiro não — elas referenciam apenas a farinha. Isso é mais útil porque mostra a proporção de cada ingrediente em relação à farinha de um olhar.",
+    "faq3Q": "Qual a porcentagem do padeiro típica para um pão de levain?",
+    "faq3A": "Uma fórmula típica de levain: Farinha 100%, Água 70-78%, Sal 2%, Levain/Cultivo 20%. Isso resulta em uma massa com 70-78% de hidratação."
+  },
+  "pizza": {
+    "title": "Calculadora de massa de pizza",
+    "pageTitle": "Calculadora de massa de pizza - Calcule a massa de pizza perfeita | BreadRatio",
+    "pageDesc": "Calcule as quantidades exatas de farinha, água, fermento, sal e óleo para qualquer número de pizzas. Presets para napolitana, nova-iorquina, siciliana e mais. Calculadora online gratuita de massa de pizza.",
+    "subtitle": "Calcule a quantidade exata de farinha, água, fermento, sal e óleo para sua massa de pizza. Escolha um estilo, defina o tamanho e a quantidade de pizzas, e obtenha medidas precisas.",
+    "pizzaCount": "Número de pizzas",
+    "pizzaSize": "Tamanho da pizza",
+    "cmDiameter": "cm de diâmetro",
+    "hydration": "Hidratação",
+    "doughPerBall": "Massa por bola",
+    "ingredientsNeeded": "Ingredientes necessários",
+    "flour": "Farinha",
+    "water": "Água",
+    "yeast": "Fermento",
+    "salt": "Sal",
+    "oil": "Óleo",
+    "totalDough": "Massa total",
+    "styles": {
+      "neapolitan": "Napolitana",
+      "newYork": "Nova-iorquina",
+      "sicilian": "Siciliana",
+      "thinCrust": "Fina e crocante",
+      "detroit": "Detroit"
+    },
+    "styleDesc": {
+      "neapolitan": "Centro fino, borda fofa. Melhor com fornos de alta temperatura (450°C+).",
+      "newYork": "Fina, dobrável, levemente crocante. A fatia clássica de rua.",
+      "sicilian": "Grossa, fofa, tipo focaccia. Assada na forma com azeite.",
+      "thinCrust": "Fina como bolacha e muito crocante. Abra o mais fino possível.",
+      "detroit": "Grossa, arejada, borda com queijo crocante. Assada em forma retangular."
+    },
+    "faqTitle": "Guia de massa de pizza",
+    "faq1Q": "Quanto de massa por pizza?",
+    "faq1A": "Para uma pizza de 12 polegadas (30cm): napolitana ~250g, estilo nova-iorquino ~280g, siciliana ~380g, fina e crocante ~220g, Detroit ~400g.",
+    "faq2Q": "Qual hidratação é melhor para a massa de pizza?",
+    "faq2A": "Napolitana: 60-65%. Nova-iorquina: 62-65%. Siciliana/Detroit: 70-75%. Fina e crocante: 55-60%.",
+    "faq3Q": "Quanto de fermento para a massa de pizza?",
+    "faq3A": "Esta calculadora usa 0,5% de fermento instantâneo (porcentagem do padeiro). Para uma massa de pizza com 300g de farinha, isso é cerca de 1,5g de fermento instantâneo."
+  },
+  "starter": {
+    "title": "Calculadora de levain",
+    "pageTitle": "Calculadora de levain - Proporções de alimentação e hidratação | BreadRatio",
+    "pageDesc": "Calcule as proporções de alimentação do levain, quantidades de farinha e água, quantidade de descarte e hidratação. Ferramenta online gratuita para padeiros de levain.",
+    "subtitle": "Calcule as proporções de alimentação, quantidades de farinha e água, quantidade de descarte e hidratação do seu levain. Escolha um modo abaixo para começar.",
+    "tabFeeding": "Calculadora de alimentação",
+    "tabTarget": "Calculadora de quantidade alvo",
+    "currentStarter": "Quantidade atual de levain",
+    "feedingRatio": "Proporção de alimentação",
+    "feedingResults": "Resultados da alimentação",
+    "flourToAdd": "Farinha a adicionar",
+    "waterToAdd": "Água a adicionar",
+    "totalAfterFeeding": "Total após alimentação",
+    "starterHydration": "Hidratação do levain",
+    "desiredFinalAmount": "Quantidade final desejada",
+    "existingStarter": "Levain existente",
+    "targetResults": "Resultados do alvo",
+    "flourNeeded": "Farinha necessária",
+    "waterNeeded": "Água necessária",
+    "useExistingStarter": "Usar levain existente",
+    "discardAmount": "Quantidade de descarte",
+    "noneNeeded": "Não necessário",
+    "newStarterTotal": "Novo total de levain",
+    "achievableTotal": "Total alcançável",
+    "requiredStarter": "Fermento necessário",
+    "targetShortfall": "Déficit",
+    "targetNotReachable": "Quantidade alvo não alcançável em uma alimentação",
+    "insufficientStarterNote": "Seu fermento atual não é suficiente para atingir a quantidade desejada em uma única alimentação. Aumente gradualmente em várias alimentações.",
+    "enterStarter": "Insira a quantidade do seu levain para ver os resultados.",
+    "enterDesired": "Insira a quantidade desejada para ver os resultados.",
+    "infoCards": {
+      "1:1:1": { "title": "1:1:1", "desc": "Alimentação diária - Mantém a força do levain" },
+      "1:2:2": { "title": "1:2:2", "desc": "Cultivo rápido - Bom para reviver levain fraco" },
+      "1:3:3": { "title": "1:3:3", "desc": "Cultivo agressivo - Produz muito descarte" },
+      "1:4:4": { "title": "1:4:4", "desc": "Crescimento máximo - Para estabelecer novo levain" }
+    },
+    "faqTitle": "Sobre a alimentação do levain",
+    "faq1Q": "O que é uma proporção de alimentação do levain?",
+    "faq1A": "Uma proporção de alimentação indica quanto levain, farinha e água combinar em cada alimentação. Escrita como L:F:A (levain:farinha:água), uma proporção 1:1:1 significa partes iguais de cada.",
+    "faq2Q": "Quanto levain devo manter versus descartar?",
+    "faq2A": "Depende do seu cronograma de panificação. Para alimentações diárias com proporção 1:1:1, manter 20-50g é comum para evitar desperdício.",
+    "faq3Q": "Qual hidratação meu levain deve ter?",
+    "faq3A": "A maioria dos padeiros mantém seu levain a 100% de hidratação, o que significa partes iguais de farinha e água em peso.",
+    "faq4Q": "Com que frequência devo alimentar meu levain?",
+    "faq4A": "Se mantido em temperatura ambiente (20-24°C), alimente seu levain a cada 12-24 horas usando uma proporção 1:1:1. Em climas mais quentes pode precisar de alimentação a cada 8-12 horas."
+  },
+  "notFound": {
+    "title": "404 — Página não encontrada",
+    "subtitle": "A página que você procura não existe. Mas temos muitas ferramentas de matemática de panificação para ajudar.",
+    "goHome": "Ir para o início",
+    "tryHydration": "Calculadora de hidratação",
+    "pageTitle": "Página não encontrada - BreadRatio",
+    "pageDesc": "A página que você procura não existe. Experimente uma de nossas calculadoras de panificação gratuitas."
+  }
+}

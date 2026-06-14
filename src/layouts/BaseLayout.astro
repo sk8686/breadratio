@@ -1,0 +1,57 @@
+---
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { t } from '../i18n/index';
+
+export interface Props {
+  title: string;
+  description: string;
+  currentPath?: string;
+  ogImage?: string;
+  canonicalURL?: string;
+  lang?: string;
+}
+
+const { title, description, currentPath = Astro.url.pathname, ogImage, canonicalURL, lang = 'en' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'} data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <script is:inline>
+      (function(){
+        try {
+          var t = localStorage.getItem('theme');
+          if (t) document.documentElement.setAttribute('data-theme', t);
+          else if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.setAttribute('data-theme', 'dark');
+        } catch(e) {}
+      })();
+    </script>
+    <SEO title={title} description={description} ogImage={ogImage} canonicalURL={canonicalURL} lang={lang} />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">{t(lang, 'nav.skipToContent')}</a>
+    <Header currentPath={currentPath} lang={lang} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+    <button class="back-to-top" id="backToTop" aria-label={t(lang, 'nav.backToTop')}>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+    <script>
+      (function(){
+        var btn = document.getElementById('backToTop');
+        if (!btn) return;
+        window.addEventListener('scroll', function(){
+          btn.classList.toggle('visible', window.scrollY > 400);
+        });
+        btn.addEventListener('click', function(){
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      })();
+    </script>
+  </body>
+</html>

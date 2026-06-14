@@ -1,0 +1,238 @@
+---
+import { t, getLocalizedPath, languages, defaultLang, langCodes } from '../i18n/index';
+
+const { currentPath = '/', lang = 'en' } = Astro.props;
+
+const navItems = [
+  { href: '/hydration-calculator/', labelKey: 'nav.hydration' },
+  { href: '/recipe-scaler/', labelKey: 'nav.scaler' },
+  { href: '/yeast-converter/', labelKey: 'nav.yeast' },
+  { href: '/bakers-percentage/', labelKey: 'nav.bakers' },
+  { href: '/pizza-dough-calculator/', labelKey: 'nav.pizza' },
+  { href: '/sourdough-starter-calculator/', labelKey: 'nav.starter' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href={getLocalizedPath('/', lang)} class="logo" aria-label={t(lang, 'nav.logoHome')}>
+      <span class="logo-icon">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 4C10.5 4 6 8.5 6 14c0 3 1 5.5 2.5 7.5l-1.5 6.5h18l-1.5-6.5C25 19.5 26 17 26 14c0-5.5-4.5-10-10-10z" fill="#D4A574" stroke="#B8874A" stroke-width="1.5"/>
+          <path d="M10 14c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#B8874A" stroke-width="1.5" fill="none"/>
+          <path d="M12 14c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="#B8874A" stroke-width="1" fill="none"/>
+          <circle cx="14" cy="14" r="1" fill="#8B6914"/>
+          <circle cx="18" cy="14" r="1" fill="#8B6914"/>
+          <circle cx="16" cy="12" r="1" fill="#8B6914"/>
+        </svg>
+      </span>
+      BreadRatio
+    </a>
+
+    <nav class="header-nav" id="mainNav">
+      {navItems.map(item => (
+        <a href={getLocalizedPath(item.href, lang)} class={isActive(item.href) ? 'active' : ''}>
+          {t(lang, item.labelKey)}
+        </a>
+      ))}
+      <button class="theme-toggle" id="themeToggle" aria-label={t(lang, 'nav.themeToggle')}>
+        <svg id="sunIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg id="moonIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn" id="langBtn" aria-label={t(lang, 'nav.switchLanguage')}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span>{languages[lang]}</span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          {langCodes.map(code => (
+            <a href={getLocalizedPath(currentPath, code)} class={code === lang ? 'active' : ''}>{languages[code]}</a>
+          ))}
+        </div>
+      </div>
+    </nav>
+
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label={t(lang, 'nav.menu')} aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<script>
+  import { shouldCloseMenuOnDocumentClick } from '../utils/calculator-helpers.js';
+
+  function initHeader() {
+    const themeToggle = document.getElementById('themeToggle');
+    const sunIcon = document.getElementById('sunIcon');
+    const moonIcon = document.getElementById('moonIcon');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mainNav = document.getElementById('mainNav');
+    const langBtn = document.getElementById('langBtn');
+    const langDropdown = document.getElementById('langDropdown');
+
+    function setTheme(theme: string) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('theme', theme); } catch(e) {}
+      if (sunIcon && moonIcon) {
+        sunIcon.style.display = theme === 'dark' ? 'none' : '';
+        moonIcon.style.display = theme === 'dark' ? '' : 'none';
+      }
+    }
+
+    const savedTheme = (() => { try { return localStorage.getItem('theme'); } catch(e) { return null; } })();
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setTheme('dark');
+    }
+
+    themeToggle?.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+
+    mobileMenuBtn?.addEventListener('click', () => {
+      const isOpen = mainNav?.classList.toggle('open');
+      mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    langBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = langDropdown?.classList.toggle('open');
+      langBtn.setAttribute('aria-expanded', String(isOpen));
+      if (isOpen) {
+        const firstLink = langDropdown?.querySelector('a');
+        firstLink?.focus();
+      }
+    });
+
+    langBtn?.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === ' ') {
+        e.preventDefault();
+        langDropdown?.classList.add('open');
+        langBtn.setAttribute('aria-expanded', 'true');
+        const firstLink = langDropdown?.querySelector('a');
+        firstLink?.focus();
+      }
+    });
+
+    langDropdown?.addEventListener('keydown', (e) => {
+      const links = Array.from(langDropdown.querySelectorAll('a'));
+      const currentIndex = links.indexOf(document.activeElement as HTMLAnchorElement);
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        const next = links[currentIndex + 1] || links[0];
+        next?.focus();
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        const prev = links[currentIndex - 1] || links[links.length - 1];
+        prev?.focus();
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        langDropdown.classList.remove('open');
+        langBtn.setAttribute('aria-expanded', 'false');
+        langBtn.focus();
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      const targetNode = e.target as Node | null;
+      const shouldCloseMenu = shouldCloseMenuOnDocumentClick({
+        isMenuOpen: mainNav?.classList.contains('open'),
+        targetInsideNav: Boolean(targetNode && mainNav?.contains(targetNode)),
+        targetInsideToggle: Boolean(targetNode && mobileMenuBtn?.contains(targetNode)),
+      });
+
+      if (shouldCloseMenu) {
+        mainNav.classList.remove('open');
+        mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+      }
+      if (langDropdown?.classList.contains('open') && targetNode && !langDropdown.contains(targetNode) && !langBtn?.contains(targetNode)) {
+        langDropdown.classList.remove('open');
+      }
+    });
+  }
+
+  initHeader();
+</script>
+
+<style>
+  .lang-switcher {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+  .lang-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 4px 8px;
+    cursor: pointer;
+    color: var(--color-brown-light);
+    font-size: 0.8rem;
+    line-height: 1;
+  }
+  .lang-btn:hover {
+    border-color: var(--color-caramel);
+    color: var(--color-caramel-dark);
+  }
+  .lang-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+    z-index: 100;
+    min-width: 120px;
+    overflow: hidden;
+  }
+  .lang-dropdown.open {
+    display: block;
+  }
+  .lang-dropdown a {
+    display: block;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    color: var(--color-brown-light);
+    text-decoration: none;
+  }
+  .lang-dropdown a:hover {
+    background: var(--color-wheat);
+    color: var(--color-brown);
+  }
+  .lang-dropdown a.active {
+    font-weight: 700;
+    color: var(--color-caramel-dark);
+  }
+</style>

@@ -1,0 +1,190 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+import { t, getLocalizedPath } from '../i18n/index';
+import { buildFAQPageSchema } from '../utils/seo.js';
+
+const lang = 'en';
+const faqSchema = buildFAQPageSchema([
+  { question: t(lang, 'faq.hydrationQ'), answer: t(lang, 'faq.hydrationA') },
+  { question: t(lang, 'faq.yeastQ'), answer: t(lang, 'faq.yeastA') },
+  { question: t(lang, 'faq.bakersQ'), answer: t(lang, 'faq.bakersA') },
+  { question: t(lang, 'faq.pizzaQ'), answer: t(lang, 'faq.pizzaA') },
+  { question: t(lang, 'faq.freeQ'), answer: t(lang, 'faq.freeA') },
+  { question: t(lang, 'faq.starterQ'), answer: t(lang, 'faq.starterA') },
+  { question: t(lang, 'faq.scalerQ'), answer: t(lang, 'faq.scalerA') },
+]);
+---
+
+<BaseLayout
+  title={t(lang, 'home.pageTitle') || 'BreadRatio - Free Baking Math Tools for Home Bakers'}
+  description={t(lang, 'home.pageDesc') || 'Free online baking calculators for sourdough hydration, recipe scaling, yeast conversion, baker\'s percentage, and pizza dough. No sign-up required.'}
+  currentPath="/"
+  lang={lang}
+>
+  <script type="application/ld+json" set:html={`{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "BreadRatio",
+    "url": "https://breadratio.com",
+    "description": "Free online baking calculators for sourdough hydration, recipe scaling, yeast conversion, baker's percentage, and pizza dough.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }`}></script>
+  <section class="hero">
+    <div class="container">
+      <h1>{t(lang, 'home.title')}</h1>
+      <p>{t(lang, 'home.subtitle')}</p>
+    </div>
+  </section>
+
+  <section class="container container-wide">
+    <div class="tool-grid">
+      <a href={getLocalizedPath('/hydration-calculator/', lang)} class="tool-card">
+        <div class="tool-card-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 6C16 6 10 12 10 20c0 4 1.5 7.5 3 10l-2 9h26l-2-9c1.5-2.5 3-6 3-10 0-8-6-14-14-14z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="2"/>
+            <path d="M14 20c0-5.5 4.5-10 10-10s10 4.5 10 10" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="18" cy="18" r="1.5" fill="currentColor"/>
+            <circle cx="22" cy="17" r="1.5" fill="currentColor"/>
+            <circle cx="26" cy="17" r="1.5" fill="currentColor"/>
+            <circle cx="30" cy="18" r="1.5" fill="currentColor"/>
+          </svg>
+        </div>
+        <h3>{t(lang, 'home.tools.hydration.title')}</h3>
+        <p>{t(lang, 'home.tools.hydration.desc')}</p>
+        <span class="arrow">{t(lang, 'home.tools.hydration.open')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href={getLocalizedPath('/recipe-scaler/', lang)} class="tool-card">
+        <div class="tool-card-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="8" width="14" height="14" rx="2" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="2"/>
+            <rect x="26" y="26" width="14" height="14" rx="2" fill="currentColor" opacity="0.2" stroke="currentColor" stroke-width="2"/>
+            <path d="M22 22L26 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M18 18L22 22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>{t(lang, 'home.tools.scaler.title')}</h3>
+        <p>{t(lang, 'home.tools.scaler.desc')}</p>
+        <span class="arrow">{t(lang, 'home.tools.scaler.open')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href={getLocalizedPath('/yeast-converter/', lang)} class="tool-card">
+        <div class="tool-card-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="8" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="2"/>
+            <circle cx="32" cy="32" r="8" fill="currentColor" opacity="0.2" stroke="currentColor" stroke-width="2"/>
+            <circle cx="24" cy="24" r="8" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="2"/>
+            <path d="M24 16v16M16 24h16" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+          </svg>
+        </div>
+        <h3>{t(lang, 'home.tools.yeast.title')}</h3>
+        <p>{t(lang, 'home.tools.yeast.desc')}</p>
+        <span class="arrow">{t(lang, 'home.tools.yeast.open')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href={getLocalizedPath('/bakers-percentage/', lang)} class="tool-card">
+        <div class="tool-card-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="18" fill="currentColor" opacity="0.1" stroke="currentColor" stroke-width="2"/>
+            <path d="M24 6v36M6 24h36" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+            <path d="M24 6a18 18 0 0 1 0 36" stroke="currentColor" stroke-width="2" fill="none" opacity="0.5"/>
+            <path d="M24 6a18 18 0 0 0 0 36" stroke="currentColor" stroke-width="2" fill="none" opacity="0.3"/>
+          </svg>
+        </div>
+        <h3>{t(lang, 'home.tools.bakers.title')}</h3>
+        <p>{t(lang, 'home.tools.bakers.desc')}</p>
+        <span class="arrow">{t(lang, 'home.tools.bakers.open')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href={getLocalizedPath('/pizza-dough-calculator/', lang)} class="tool-card">
+        <div class="tool-card-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="18" fill="currentColor" opacity="0.12" stroke="currentColor" stroke-width="2"/>
+            <path d="M24 6L36 24L24 42L12 24Z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="24" cy="24" r="6" fill="currentColor" opacity="0.3"/>
+            <circle cx="20" cy="18" r="1.5" fill="currentColor" opacity="0.4"/>
+            <circle cx="30" cy="20" r="1.5" fill="currentColor" opacity="0.4"/>
+            <circle cx="28" cy="30" r="1.5" fill="currentColor" opacity="0.4"/>
+          </svg>
+        </div>
+        <h3>{t(lang, 'home.tools.pizza.title')}</h3>
+        <p>{t(lang, 'home.tools.pizza.desc')}</p>
+        <span class="arrow">{t(lang, 'home.tools.pizza.open')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href={getLocalizedPath('/sourdough-starter-calculator/', lang)} class="tool-card">
+        <div class="tool-card-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 16c0-4.4 3.6-8 8-8s8 3.6 8 8v18c0 4.4-3.6 8-8 8s-8-3.6-8-8V16z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="2"/>
+            <path d="M22 24c0-1.1.9-2 2-2s2 .9 2 2" stroke="currentColor" stroke-width="2" fill="none"/>
+            <ellipse cx="24" cy="38" rx="10" ry="3" fill="currentColor" opacity="0.2" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3>{t(lang, 'home.tools.starter.title')}</h3>
+        <p>{t(lang, 'home.tools.starter.desc')}</p>
+        <span class="arrow">{t(lang, 'home.tools.starter.open')} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="container page-content" id="about">
+    <h2>{t(lang, 'home.whyTitle')}</h2>
+    <p>{t(lang, 'home.whyP1')}</p>
+    <p>{t(lang, 'home.whyP2')}</p>
+  </section>
+
+  <section class="container faq-section" id="faq">
+    <script type="application/ld+json" set:html={faqSchema}></script>
+    <h2>{t(lang, 'home.faqTitle')}</h2>
+
+    <details class="faq-item">
+      <summary>{t(lang, 'faq.hydrationQ')}</summary>
+      <div class="faq-answer">
+        <p>{t(lang, 'faq.hydrationA')}</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>{t(lang, 'faq.yeastQ')}</summary>
+      <div class="faq-answer">
+        <p>{t(lang, 'faq.yeastA')}</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>{t(lang, 'faq.bakersQ')}</summary>
+      <div class="faq-answer">
+        <p>{t(lang, 'faq.bakersA')}</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>{t(lang, 'faq.pizzaQ')}</summary>
+      <div class="faq-answer"><p>{t(lang, 'faq.pizzaA')}</p></div>
+    </details>
+
+    <details class="faq-item">
+      <summary>{t(lang, 'faq.freeQ')}</summary>
+      <div class="faq-answer">
+        <p>{t(lang, 'faq.freeA')}</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>{t(lang, 'faq.starterQ')}</summary>
+      <div class="faq-answer">
+        <p>{t(lang, 'faq.starterA')}</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>{t(lang, 'faq.scalerQ')}</summary>
+      <div class="faq-answer">
+        <p>{t(lang, 'faq.scalerA')}</p>
+      </div>
+    </details>
+  </section>
+</BaseLayout>

@@ -1,0 +1,35 @@
+---
+import { t, getLocalizedPath } from '../i18n/index';
+
+const { lang = 'en' } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>BreadRatio</h3>
+      <p>{t(lang, 'footer.tagline')}</p>
+    </div>
+    <div class="footer-links">
+      <h4>{t(lang, 'footer.tools')}</h4>
+      <ul>
+        <li><a href={getLocalizedPath('/hydration-calculator/', lang)}>{t(lang, 'nav.hydration')}</a></li>
+        <li><a href={getLocalizedPath('/recipe-scaler/', lang)}>{t(lang, 'nav.scaler')}</a></li>
+        <li><a href={getLocalizedPath('/yeast-converter/', lang)}>{t(lang, 'nav.yeast')}</a></li>
+        <li><a href={getLocalizedPath('/bakers-percentage/', lang)}>{t(lang, 'nav.bakers')}</a></li>
+        <li><a href={getLocalizedPath('/pizza-dough-calculator/', lang)}>{t(lang, 'nav.pizza')}</a></li>
+        <li><a href={getLocalizedPath('/sourdough-starter-calculator/', lang)}>{t(lang, 'nav.starter')}</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>{t(lang, 'footer.resources')}</h4>
+      <ul>
+        <li><a href={getLocalizedPath('/#faq', lang)}>{t(lang, 'footer.faq')}</a></li>
+        <li><a href={getLocalizedPath('/#about', lang)}>{t(lang, 'footer.about')}</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {new Date().getFullYear()} BreadRatio. {t(lang, 'footer.copyright')}</p>
+  </div>
+</footer>

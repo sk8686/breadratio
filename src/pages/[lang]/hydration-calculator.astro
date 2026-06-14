@@ -1,0 +1,251 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/global.css';
+import { t, getLocalizedPath, langCodes, defaultLang } from '../../i18n/index';
+
+export function getStaticPaths() {
+  return langCodes
+    .filter(code => code !== defaultLang)
+    .map(code => ({ params: { lang: code } }));
+}
+
+const { lang } = Astro.params;
+import { buildFAQPageSchema, buildSoftwareAppSchema, buildBreadcrumbSchema } from '../../utils/seo.js';
+const faqSchema = buildFAQPageSchema([
+  { question: t(lang, 'hydration.faq1Q'), answer: t(lang, 'hydration.faq1A') },
+  { question: t(lang, 'hydration.faq2Q'), answer: t(lang, 'hydration.faq2A') },
+  { question: t(lang, 'hydration.faq3Q'), answer: t(lang, 'hydration.faq3A') },
+  { question: t(lang, 'hydration.faq4Q'), answer: t(lang, 'hydration.faq4A') },
+  { question: t(lang, 'hydration.faq5Q'), answer: t(lang, 'hydration.faq5A') },
+  { question: t(lang, 'hydration.faq6Q'), answer: t(lang, 'hydration.faq6A') },
+]);
+const appSchema = buildSoftwareAppSchema({
+  name: t(lang, 'hydration.pageTitle'),
+  url: `https://breadratio.com/${lang}/hydration-calculator/`,
+  description: t(lang, 'hydration.pageDesc'),
+});
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: t(lang, 'nav.home'), url: 'https://breadratio.com' + getLocalizedPath('/', lang) },
+  { name: t(lang, 'hydration.title'), url: 'https://breadratio.com' + getLocalizedPath('/hydration-calculator/', lang) },
+]);
+---
+
+<BaseLayout title={t(lang, 'hydration.pageTitle')} description={t(lang, 'hydration.pageDesc')} currentPath={`/${lang}/hydration-calculator/`} lang={lang}>
+  <section class="container page-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href={getLocalizedPath('/', lang)}>{t(lang, 'nav.home')}</a>
+      <span class="sep">/</span>
+      <span>{t(lang, 'home.tools.hydration.title')}</span>
+    </nav>
+
+    <div class="page-header">
+      <h1>{t(lang, 'hydration.title')}</h1>
+      <p>{t(lang, 'hydration.subtitle')}</p>
+    </div>
+
+    <div class="calc-card" id="calcCard"
+      data-text-copied={t(lang, 'calc.copied')}
+      data-text-copy={t(lang, 'calc.copyResult')}
+      data-text-enter-flour={t(lang, 'hydration.enterFlour')}
+      data-desc-very-stiff={t(lang, 'hydration.desc.veryStiff')}
+      data-desc-stiff={t(lang, 'hydration.desc.stiff')}
+      data-desc-standard={t(lang, 'hydration.desc.standard')}
+      data-desc-high={t(lang, 'hydration.desc.high')}
+      data-desc-very-high={t(lang, 'hydration.desc.veryHigh')}
+      data-desc-extreme={t(lang, 'hydration.desc.extreme')}
+    >
+      <div class="input-row">
+        <div class="input-group">
+          <label for="flour">{t(lang, 'hydration.flour')} <span class="unit">({t(lang, 'calc.grams')})</span></label>
+          <div class="input-field">
+            <input type="number" id="flour" placeholder="500" inputmode="decimal" min="0" step="any" value="500" />
+            <span class="input-suffix">{t(lang, 'calc.grams')}</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="water">{t(lang, 'hydration.water')} <span class="unit">({t(lang, 'calc.grams')})</span></label>
+          <div class="input-field">
+            <input type="number" id="water" placeholder="350" inputmode="decimal" min="0" step="any" value="350" />
+            <span class="input-suffix">{t(lang, 'calc.grams')}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="presets">
+        <span style="font-size:0.8rem;color:var(--color-muted);margin-right:4px;display:flex;align-items:center;">{t(lang, 'calc.presets')}</span>
+        <button class="preset-btn" data-flour="500" data-water="275">{t(lang, 'hydration.presets.bagels')}</button>
+        <button class="preset-btn" data-flour="500" data-water="300">{t(lang, 'hydration.presets.sandwich')}</button>
+        <button class="preset-btn active" data-flour="500" data-water="350">{t(lang, 'hydration.presets.sourdough')}</button>
+        <button class="preset-btn" data-flour="500" data-water="375">{t(lang, 'hydration.presets.baguette')}</button>
+        <button class="preset-btn" data-flour="500" data-water="400">{t(lang, 'hydration.presets.ciabatta')}</button>
+        <button class="preset-btn" data-flour="500" data-water="425">{t(lang, 'hydration.presets.focaccia')}</button>
+      </div>
+
+      <div class="result-display" style="text-align:center;" aria-live="polite" aria-atomic="true">
+        <div class="result-value" id="hydrationValue">70.0%</div>
+        <div class="result-label" id="hydrationLabel">{t(lang, 'hydration.desc.standard')}</div>
+        <div class="hydration-meter">
+          <div class="indicator" id="hydrationIndicator" style="left:70%"></div>
+        </div>
+        <div class="hydration-labels">
+          <span>50%</span><span>60%</span><span>70%</span><span>80%</span><span>90%</span><span>100%</span>
+        </div>
+        <button class="btn-copy" id="copyHydration" style="margin-top:12px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          {t(lang, 'calc.copyResult')}
+        </button>
+      </div>
+    </div>
+
+    <div class="info-cards" id="infoCards">
+      <div class="info-card"><div class="range">{t(lang, 'hydration.infoCards.veryStiff.range')}</div><div class="desc">{t(lang, 'hydration.infoCards.veryStiff.title')}<br/>{t(lang, 'hydration.infoCards.veryStiff.desc')}</div></div>
+      <div class="info-card"><div class="range">{t(lang, 'hydration.infoCards.stiff.range')}</div><div class="desc">{t(lang, 'hydration.infoCards.stiff.title')}<br/>{t(lang, 'hydration.infoCards.stiff.desc')}</div></div>
+      <div class="info-card"><div class="range">{t(lang, 'hydration.infoCards.standard.range')}</div><div class="desc">{t(lang, 'hydration.infoCards.standard.title')}<br/>{t(lang, 'hydration.infoCards.standard.desc')}</div></div>
+      <div class="info-card"><div class="range">{t(lang, 'hydration.infoCards.high.range')}</div><div class="desc">{t(lang, 'hydration.infoCards.high.title')}<br/>{t(lang, 'hydration.infoCards.high.desc')}</div></div>
+      <div class="info-card"><div class="range">{t(lang, 'hydration.infoCards.veryHigh.range')}</div><div class="desc">{t(lang, 'hydration.infoCards.veryHigh.title')}<br/>{t(lang, 'hydration.infoCards.veryHigh.desc')}</div></div>
+      <div class="info-card"><div class="range">{t(lang, 'hydration.infoCards.extreme.range')}</div><div class="desc">{t(lang, 'hydration.infoCards.extreme.title')}<br/>{t(lang, 'hydration.infoCards.extreme.desc')}</div></div>
+    </div>
+
+    <div class="faq-section">
+      <script type="application/ld+json" set:html={appSchema}></script>
+      <script type="application/ld+json" set:html={faqSchema}></script>
+      <script type="application/ld+json" set:html={breadcrumbSchema}></script>
+      <h2>{t(lang, 'hydration.faqTitle')}</h2>
+      <details class="faq-item" open>
+        <summary>{t(lang, 'hydration.faq1Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'hydration.faq1A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'hydration.faq2Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'hydration.faq2A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'hydration.faq3Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'hydration.faq3A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'hydration.faq4Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'hydration.faq4A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'hydration.faq5Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'hydration.faq5A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'hydration.faq6Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'hydration.faq6A')}</p></div>
+      </details>
+    </div>
+
+    <div class="related-tools">
+      <h3>{t(lang, 'calc.relatedTools')}</h3>
+      <ul>
+        <li><a href={getLocalizedPath('/recipe-scaler/', lang)}>{t(lang, 'home.tools.scaler.title')}</a></li>
+        <li><a href={getLocalizedPath('/bakers-percentage/', lang)}>{t(lang, 'home.tools.bakers.title')}</a></li>
+        <li><a href={getLocalizedPath('/yeast-converter/', lang)}>{t(lang, 'home.tools.yeast.title')}</a></li>
+        <li><a href={getLocalizedPath('/pizza-dough-calculator/', lang)}>{t(lang, 'home.tools.pizza.title')}</a></li>
+        <li><a href={getLocalizedPath('/sourdough-starter-calculator/', lang)}>{t(lang, 'home.tools.starter.title')}</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  function init() {
+    const calcCard = document.getElementById('calcCard');
+    const flourInput = document.getElementById('flour') as HTMLInputElement;
+    const waterInput = document.getElementById('water') as HTMLInputElement;
+    const hydrationValue = document.getElementById('hydrationValue');
+    const hydrationLabel = document.getElementById('hydrationLabel');
+    const hydrationIndicator = document.getElementById('hydrationIndicator');
+    const copyBtn = document.getElementById('copyHydration');
+    const presetBtns = document.querySelectorAll('.preset-btn');
+
+    const texts = {
+      copied: calcCard?.dataset.textCopied || 'Copied!',
+      copy: calcCard?.dataset.textCopy || 'Copy Result',
+      enterFlour: calcCard?.dataset.textEnterFlour || 'Enter flour weight',
+      descVeryStiff: calcCard?.dataset.descVeryStiff || 'Very Stiff — Tight, dense crumb. Ideal for bagels and pretzels.',
+      descStiff: calcCard?.dataset.descStiff || 'Stiff — Firm dough, fine crumb. Great for sandwich bread and rolls.',
+      descStandard: calcCard?.dataset.descStandard || 'Standard — Balanced dough with moderate crumb openness.',
+      descHigh: calcCard?.dataset.descHigh || 'High — Open crumb, crispy crust. Classic artisan sourdough.',
+      descVeryHigh: calcCard?.dataset.descVeryHigh || 'Very High — Large holes, thin crispy crust. Ciabatta and focaccia.',
+      descExtreme: calcCard?.dataset.descExtreme || 'Extreme — Massive open crumb. Pan de cristal territory.',
+    };
+
+    function getDesc(h: number): string {
+      if (h <= 57) return texts.descVeryStiff;
+      if (h <= 65) return texts.descStiff;
+      if (h <= 70) return texts.descStandard;
+      if (h <= 78) return texts.descHigh;
+      if (h <= 85) return texts.descVeryHigh;
+      return texts.descExtreme;
+    }
+
+    function sanitizeNum(val: string): number {
+      const n = parseFloat(val);
+      if (isNaN(n) || !isFinite(n)) return 0;
+      return n;
+    }
+
+    function update() {
+      const flour = sanitizeNum(flourInput.value);
+      const water = sanitizeNum(waterInput.value);
+      if (flour <= 0) {
+        if (hydrationValue) hydrationValue.textContent = '—';
+        if (hydrationLabel) hydrationLabel.textContent = texts.enterFlour;
+        if (hydrationIndicator) hydrationIndicator.style.left = '0%';
+        return;
+      }
+      const h = (water / flour) * 100;
+      const clamped = Math.min(100, Math.max(0, h));
+      if (hydrationValue) hydrationValue.textContent = h.toFixed(1) + '%';
+      if (hydrationLabel) hydrationLabel.textContent = getDesc(h);
+      if (hydrationIndicator) hydrationIndicator.style.left = clamped + '%';
+
+      presetBtns.forEach(btn => {
+        const pf = (btn as HTMLElement).dataset.flour;
+        const pw = (btn as HTMLElement).dataset.water;
+        const inFlour = parseFloat(flourInput.value) || 0;
+        const inWater = parseFloat(waterInput.value) || 0;
+        if (pf && pw && parseFloat(pf) === inFlour && parseFloat(pw) === inWater) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+    }
+
+    flourInput?.addEventListener('input', update);
+    waterInput?.addEventListener('input', update);
+
+    presetBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const f = (btn as HTMLElement).dataset.flour;
+        const w = (btn as HTMLElement).dataset.water;
+        if (f && flourInput) flourInput.value = f;
+        if (w && waterInput) waterInput.value = w;
+        update();
+      });
+    });
+
+    copyBtn?.addEventListener('click', () => {
+      const text = hydrationValue?.textContent || '';
+      if (!navigator.clipboard) { console.warn('Clipboard not available'); return; }
+      navigator.clipboard.writeText(text).then(() => {
+        copyBtn.classList.add('copied');
+        copyBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> ' + texts.copied;
+        setTimeout(() => {
+          copyBtn.classList.remove('copied');
+          copyBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> ' + texts.copy;
+        }, 2000);
+      }).catch((e) => {
+        console.warn('Copy failed:', e);
+      });
+    });
+
+    update();
+  }
+
+  init();
+</script>

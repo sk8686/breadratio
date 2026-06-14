@@ -1,0 +1,319 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+import { t, getLocalizedPath } from '../i18n/index';
+import { buildFAQPageSchema, buildSoftwareAppSchema, buildBreadcrumbSchema } from '../utils/seo.js';
+
+const lang = 'en';
+const faqSchema = buildFAQPageSchema([
+  { question: t(lang, 'scaler.faq1Q'), answer: t(lang, 'scaler.faq1A') },
+  { question: t(lang, 'scaler.faq2Q'), answer: t(lang, 'scaler.faq2A') },
+  { question: t(lang, 'scaler.faq3Q'), answer: t(lang, 'scaler.faq3A') },
+  { question: t(lang, 'scaler.faq4Q'), answer: t(lang, 'scaler.faq4A') },
+  { question: t(lang, 'scaler.faq5Q'), answer: t(lang, 'scaler.faq5A') },
+  { question: t(lang, 'scaler.faq6Q'), answer: t(lang, 'scaler.faq6A') },
+]);
+const appSchema = buildSoftwareAppSchema({
+  name: t(lang, 'scaler.pageTitle'),
+  url: 'https://breadratio.com/recipe-scaler/',
+  description: t(lang, 'scaler.pageDesc'),
+});
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: t(lang, 'nav.home'), url: 'https://breadratio.com' + getLocalizedPath('/', lang) },
+  { name: t(lang, 'scaler.title'), url: 'https://breadratio.com' + getLocalizedPath('/recipe-scaler/', lang) },
+]);
+---
+
+<BaseLayout title={t(lang, 'scaler.pageTitle')} description={t(lang, 'scaler.pageDesc')} currentPath="/recipe-scaler/" lang={lang}>
+  <section class="container page-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href={getLocalizedPath('/', lang)}>{t(lang, 'nav.home')}</a>
+      <span class="sep">/</span>
+      <span>{t(lang, 'home.tools.scaler.title')}</span>
+    </nav>
+
+    <div class="page-header">
+      <h1>{t(lang, 'scaler.title')}</h1>
+      <p>{t(lang, 'scaler.subtitle')}</p>
+    </div>
+
+    <div class="calc-card" id="calcCard" data-text-copied={t(lang, 'calc.copied')} data-text-copy={t(lang, 'calc.copyAll')}>
+      <div class="input-row">
+        <div class="input-group">
+          <label for="originalYield">{t(lang, 'scaler.originalYield')}</label>
+          <div class="input-field">
+            <input type="number" id="originalYield" placeholder="1" inputmode="decimal" min="0.1" step="any" value="1" />
+            <span class="input-suffix">{t(lang, 'calc.loaves')}</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="targetYield">{t(lang, 'scaler.targetYield')}</label>
+          <div class="input-field">
+            <input type="number" id="targetYield" placeholder="2" inputmode="decimal" min="0.1" step="any" value="2" />
+            <span class="input-suffix">{t(lang, 'calc.loaves')}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="presets">
+        <span style="font-size:0.8rem;color:var(--color-muted);margin-right:4px;display:flex;align-items:center;">{t(lang, 'calc.quick')}</span>
+        <button class="preset-btn" data-scale="0.5">{t(lang, 'scaler.presets.half')}</button>
+        <button class="preset-btn" data-scale="2">{t(lang, 'scaler.presets.double')}</button>
+        <button class="preset-btn" data-scale="3">{t(lang, 'scaler.presets.triple')}</button>
+        <button class="preset-btn" data-scale="4">{t(lang, 'scaler.presets.quad')}</button>
+      </div>
+
+      <h3 style="margin-bottom:var(--space-md);">{t(lang, 'scaler.ingredients')}</h3>
+      <div id="ingredientsList">
+        <div class="input-row ingredient-row">
+          <div class="input-group">
+            <label>{t(lang, 'calc.ingredient')}</label>
+            <div class="input-field">
+              <input type="text" class="ing-name" placeholder="Bread flour" value="Bread flour" />
+            </div>
+          </div>
+          <div class="input-group">
+            <label>{t(lang, 'calc.amount')} <span class="unit">({t(lang, 'calc.grams')})</span></label>
+            <div class="input-field">
+              <input type="number" class="ing-amount" placeholder="500" inputmode="decimal" min="0" step="any" value="500" />
+              <span class="input-suffix">{t(lang, 'calc.grams')}</span>
+            </div>
+          </div>
+        </div>
+        <div class="input-row ingredient-row">
+          <div class="input-group">
+            <label>{t(lang, 'calc.ingredient')}</label>
+            <div class="input-field">
+              <input type="text" class="ing-name" placeholder="Water" value="Water" />
+            </div>
+          </div>
+          <div class="input-group">
+            <label>{t(lang, 'calc.amount')} <span class="unit">({t(lang, 'calc.grams')})</span></label>
+            <div class="input-field">
+              <input type="number" class="ing-amount" placeholder="350" inputmode="decimal" min="0" step="any" value="350" />
+              <span class="input-suffix">{t(lang, 'calc.grams')}</span>
+            </div>
+          </div>
+        </div>
+        <div class="input-row ingredient-row">
+          <div class="input-group">
+            <label>{t(lang, 'calc.ingredient')}</label>
+            <div class="input-field">
+              <input type="text" class="ing-name" placeholder="Salt" value="Salt" />
+            </div>
+          </div>
+          <div class="input-group">
+            <label>{t(lang, 'calc.amount')} <span class="unit">({t(lang, 'calc.grams')})</span></label>
+            <div class="input-field">
+              <input type="number" class="ing-amount" placeholder="10" inputmode="decimal" min="0" step="any" value="10" />
+              <span class="input-suffix">{t(lang, 'calc.grams')}</span>
+            </div>
+          </div>
+        </div>
+        <div class="input-row ingredient-row">
+          <div class="input-group">
+            <label>{t(lang, 'calc.ingredient')}</label>
+            <div class="input-field">
+              <input type="text" class="ing-name" placeholder="Yeast" value="Yeast" />
+            </div>
+          </div>
+          <div class="input-group">
+            <label>{t(lang, 'calc.amount')} <span class="unit">({t(lang, 'calc.grams')})</span></label>
+            <div class="input-field">
+              <input type="number" class="ing-amount" placeholder="5" inputmode="decimal" min="0" step="any" value="5" />
+              <span class="input-suffix">{t(lang, 'calc.grams')}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:var(--space-sm);margin-bottom:var(--space-lg);flex-wrap:wrap;">
+        <button class="btn btn-secondary btn-sm" id="addIngredient">{t(lang, 'calc.addIngredient')}</button>
+        <button class="btn btn-ghost btn-sm" id="resetRecipe">{t(lang, 'calc.resetDefault')}</button>
+      </div>
+
+      <div class="result-display" id="scaledResults" aria-live="polite" aria-atomic="true">
+        <h3 style="margin-bottom:var(--space-md);">{t(lang, 'scaler.scaledRecipe')} <span id="scaleFactor" style="font-weight:400;font-size:0.9rem;color:var(--color-muted);"></span></h3>
+        <div id="resultsList"></div>
+        <button class="btn-copy" id="copyScaled" style="margin-top:12px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          {t(lang, 'calc.copyAll')}
+        </button>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <script type="application/ld+json" set:html={appSchema}></script>
+      <script type="application/ld+json" set:html={faqSchema}></script>
+      <script type="application/ld+json" set:html={breadcrumbSchema}></script>
+      <h2>{t(lang, 'scaler.faqTitle')}</h2>
+      <details class="faq-item" open>
+        <summary>{t(lang, 'scaler.faq1Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'scaler.faq1A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'scaler.faq2Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'scaler.faq2A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'scaler.faq3Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'scaler.faq3A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'scaler.faq4Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'scaler.faq4A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'scaler.faq5Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'scaler.faq5A')}</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>{t(lang, 'scaler.faq6Q')}</summary>
+        <div class="faq-answer"><p>{t(lang, 'scaler.faq6A')}</p></div>
+      </details>
+    </div>
+
+    <div class="related-tools">
+      <h3>{t(lang, 'calc.relatedTools')}</h3>
+      <ul>
+        <li><a href={getLocalizedPath('/hydration-calculator/', lang)}>{t(lang, 'home.tools.hydration.title')}</a></li>
+        <li><a href={getLocalizedPath('/bakers-percentage/', lang)}>{t(lang, 'home.tools.bakers.title')}</a></li>
+        <li><a href={getLocalizedPath('/yeast-converter/', lang)}>{t(lang, 'home.tools.yeast.title')}</a></li>
+        <li><a href={getLocalizedPath('/pizza-dough-calculator/', lang)}>{t(lang, 'home.tools.pizza.title')}</a></li>
+        <li><a href={getLocalizedPath('/sourdough-starter-calculator/', lang)}>{t(lang, 'home.tools.starter.title')}</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  function init() {
+    const calcCard = document.getElementById('calcCard');
+    const textCopied = calcCard?.dataset.textCopied || 'Copied!';
+    const textCopy = calcCard?.dataset.textCopy || 'Copy All';
+    const originalYield = document.getElementById('originalYield') as HTMLInputElement;
+    const targetYield = document.getElementById('targetYield') as HTMLInputElement;
+    const resultsList = document.getElementById('resultsList');
+    const scaleFactor = document.getElementById('scaleFactor');
+    const copyBtn = document.getElementById('copyScaled');
+    const ingredientsList = document.getElementById('ingredientsList');
+
+    function sanitizeNum(val: string): number {
+      const n = parseFloat(val);
+      if (isNaN(n) || !isFinite(n)) return 0;
+      return n;
+    }
+
+    function getIngredients(): { name: string; amount: number }[] {
+      const rows = ingredientsList?.querySelectorAll('.ingredient-row') || [];
+      const ings: { name: string; amount: number }[] = [];
+      rows.forEach(row => {
+        const name = (row.querySelector('.ing-name') as HTMLInputElement)?.value?.trim() || '';
+        const amount = sanitizeNum((row.querySelector('.ing-amount') as HTMLInputElement)?.value || '0');
+        if (name) ings.push({ name, amount });
+      });
+      return ings;
+    }
+
+    function update() {
+      const orig = sanitizeNum(originalYield?.value || '0');
+      const target = sanitizeNum(targetYield?.value || '0');
+      const ingredients = getIngredients();
+
+      if (orig <= 0 || target <= 0) {
+        if (scaleFactor) scaleFactor.textContent = '';
+        if (resultsList) resultsList.innerHTML = '<p style="color:var(--color-muted);">Enter valid yields to see scaled results.</p>';
+        return;
+      }
+
+      const factor = target / orig;
+      if (scaleFactor) scaleFactor.textContent = `(x${factor.toFixed(2)})`;
+
+      let html = '';
+      ingredients.forEach(ing => {
+        const scaled = Math.round(ing.amount * factor * 10) / 10;
+        html += `<div class="result-row"><span class="label">${escapeHtml(ing.name)}</span><span class="value">${scaled}g</span></div>`;
+      });
+      if (resultsList) resultsList.innerHTML = html;
+    }
+
+    function escapeHtml(str: string): string {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    originalYield?.addEventListener('input', update);
+    targetYield?.addEventListener('input', update);
+    ingredientsList?.addEventListener('input', update);
+
+    document.getElementById('addIngredient')?.addEventListener('click', () => {
+      const div = document.createElement('div');
+      div.className = 'input-row ingredient-row';
+      div.innerHTML = `
+        <div class="input-group"><label>Ingredient</label><div class="input-field"><input type="text" class="ing-name" placeholder="Ingredient name" /></div></div>
+        <div class="input-group"><label>Amount <span class="unit">(grams)</span></label><div class="input-field"><input type="number" class="ing-amount" placeholder="0" inputmode="decimal" min="0" step="any" /><span class="input-suffix">g</span></div></div>
+        <button class="btn btn-ghost btn-sm remove-ing" style="align-self:flex-end;margin-bottom:var(--space-lg);" title="Remove">&times;</button>
+      `;
+      ingredientsList?.appendChild(div);
+      div.querySelector('.remove-ing')?.addEventListener('click', () => { div.remove(); update(); });
+      div.querySelector('.ing-name')?.addEventListener('input', update);
+      div.querySelector('.ing-amount')?.addEventListener('input', update);
+    });
+
+    document.getElementById('resetRecipe')?.addEventListener('click', () => {
+      const defaults = [
+        { name: 'Bread flour', amount: '500' },
+        { name: 'Water', amount: '350' },
+        { name: 'Salt', amount: '10' },
+        { name: 'Yeast', amount: '5' },
+      ];
+      const rows = ingredientsList?.querySelectorAll('.ingredient-row') || [];
+      rows.forEach((row, i) => {
+        if (i < defaults.length) {
+          const nameInput = row.querySelector('.ing-name') as HTMLInputElement;
+          const amtInput = row.querySelector('.ing-amount') as HTMLInputElement;
+          if (nameInput) nameInput.value = defaults[i].name;
+          if (amtInput) amtInput.value = defaults[i].amount;
+        } else {
+          row.remove();
+        }
+      });
+      if (originalYield) originalYield.value = '1';
+      if (targetYield) targetYield.value = '2';
+      update();
+    });
+
+    document.querySelectorAll('.preset-btn[data-scale]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const scale = parseFloat((btn as HTMLElement).dataset.scale || '0');
+        const orig = parseFloat(originalYield?.value || '1') || 1;
+        if (targetYield) targetYield.value = String(Math.round(orig * scale * 10) / 10);
+        update();
+      });
+    });
+
+    copyBtn?.addEventListener('click', () => {
+      const rows = resultsList?.querySelectorAll('.result-row') || [];
+      let text = '';
+      rows.forEach(row => {
+        const label = row.querySelector('.label')?.textContent?.trim() || '';
+        const value = row.querySelector('.value')?.textContent?.trim() || '';
+        text += `${label}: ${value}\n`;
+      });
+      if (!navigator.clipboard) { console.warn('Clipboard not available'); return; }
+      navigator.clipboard.writeText(text.trim()).then(() => {
+        copyBtn.classList.add('copied');
+        copyBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> ' + textCopied;
+        setTimeout(() => {
+          copyBtn.classList.remove('copied');
+          copyBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> ' + textCopy;
+        }, 2000);
+      }).catch((e) => { console.warn('Copy failed:', e); });
+    });
+
+    update();
+  }
+
+  init();
+</script>
