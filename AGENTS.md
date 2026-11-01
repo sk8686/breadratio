@@ -1,9 +1,8 @@
-# 面包计算器
+# 面包计算器 / BreadRatio
 
-`breadratio`：面包配方比例（烘焙百分比）计算器。
+烘焙数学工具站，线上 breadratio.com。
 
-- 技术栈：Astro（极简依赖）
-- 开发：`npm run dev`
-- 构建：`npm run build` → `dist/`
-- 规范：`docs/PROJECT-PRINCIPLES.md`、`QUALITY-GATE.md` 是质量门，改之前先读
-- 注意：`BUG-AUDIT-REPORT.md` 记录了已修/未修问题
+- 开发：`npm run dev`｜构建：`npm run build` → `dist/`
+- 测试：`tests/`（calculator-helpers、calculator-ui，`.mjs`）
+- 产品原则见 `docs/background.md`：只做静态工具页、每页回答 3 个真实问题
+- 部署 Cloudflare Pages 项目 `breadratio`
